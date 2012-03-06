@@ -1,0 +1,13 @@
+{ "name": "api.free103point9.org"
+, "description": "API for free103point9.org"
+, "version": "0.0.1"
+, "author": "Gabriel Farrell <g@grrawr.com>"
+, "engines": { "node": ">=0.6.0" }
+, "main": "server"
+, "repository":
+  { "type": "git"
+  , "url": "http://github.com/free103point9/api.free103point9.org.git"
+  }
+, "dependencies":
+  { "es": ">=0.0.4" }
+}
