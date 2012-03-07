@@ -9,5 +9,7 @@
   , "url": "http://github.com/free103point9/api.free103point9.org.git"
   }
 , "dependencies":
-  { "es": ">=0.0.4" }
+  { "es": ">=0.0.4"
+  , "express": ">=2.5.8"
+  }
 }
