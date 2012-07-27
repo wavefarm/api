@@ -1,24 +1,34 @@
-var es = require('es');
-var express = require('express');
-var url = require('url');
+var es = require('es')
+var http = require('http')
+var stack = require('stack')
+var url = require('url')
+var util = require('util')
 
-var app = express.createServer();
-var port = process.argv[2] || 8168;
+var port = process.env.PORT || 1039
 
-app.get('/', function(req, res) {
-  es.request({
-    path: '/free103/_status',
-    res: res,
-    respond: true
-  });
-});
+http.createServer(stack(
+  function(req, res, next) {
+    res.end('hello')
+    //es.request({
+    //  path: '/free103/_status',
+    //  res: res,
+    //  respond: true
+    //})
+  }
+)).listen(port, function() {
+  util.log('Listening on port '+port)
+  // for tests
+  if (process.send) process.send('listening')
+})
 
-app.get('/search', function(req, res) {
-  es.request({
-    path: '/free103/_search' + url.parse(req.url).search,
-    res: res,
-    respond: true
-  });
-});
+//app.get('/search', function(req, res) {
+//  es.request({
+//    path: '/free103/_search' + url.parse(req.url).search,
+//    res: res,
+//    respond: true
+//  })
+//})
 
-app.listen(port);
+process.on('exit', function() {
+  child.kill()
+})

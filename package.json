@@ -1,16 +1,19 @@
-{ "name": "api.free103point9.org"
-, "description": "API for free103point9.org"
-, "version": "0.0.1"
-, "author": "Gabriel Farrell <g@grrawr.com>"
-, "engines": { "node": ">=0.6.0" }
-, "main": "server"
-, "repository":
-  { "type": "git"
-  , "url": "http://github.com/free103point9/api.free103point9.org.git"
-  }
-, "scripts" : { "test" : "find test/test-*.js | xargs -n 1 -t node" }
-, "dependencies":
-  { "es": ">=0.0.4"
-  , "express": ">=2.5.8"
+{ "name": "api.free103point9.org", 
+  "description": "API for free103point9.org", 
+  "version": "0.0.0", 
+  "author": "Gabriel Farrell <g@grrawr.com>", 
+  "engines": { "node": ">=0.6.0" }, 
+  "main": "server", 
+  "repository": { 
+    "type": "git", 
+    "url": "http://github.com/free103point9/api.free103point9.org.git"
+  }, 
+  "scripts": {"test" : "find test/test-*.js | xargs -n 1 -t node"}, 
+  "dependencies": { 
+    "es": "0.0.4",
+    "stack": "0.1.0"
+  },
+  "devDependencies": {
+    "request": "2.9.203"
   }
 }
