@@ -12,14 +12,11 @@ child.on('message', function(m) {
       try {
         parsed = JSON.parse(body)
       } catch (e) {
-        child.kill()
-        return assert(false, 'should be able to parse body')
+        assert(false, 'should be able to parse body')
+        return child.kill()
       }
       assert(parsed.ok)
+      child.kill()
     })
   }
-})
-
-process.on('exit', function() {
-  child.kill()
 })

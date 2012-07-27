@@ -8,7 +8,7 @@ var port = process.env.PORT || 1039
 
 http.createServer(stack(
   function(req, res, next) {
-    res.end('hello')
+    res.end('{"ok":true}')
     //es.request({
     //  path: '/free103/_status',
     //  res: res,
@@ -28,7 +28,3 @@ http.createServer(stack(
 //    respond: true
 //  })
 //})
-
-process.on('exit', function() {
-  child.kill()
-})
