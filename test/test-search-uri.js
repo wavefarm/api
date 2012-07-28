@@ -1,18 +1,13 @@
-var assert = require('assert');
-var http = require('http');
+var assert = require('assert')
+var request = require('request')
 
-http.request({
-  host: 'api.free103point9.org',
-  path: '/search?q=bob'
-}, function(res) {
-  var data = '';
-  res.setEncoding('utf8');
-  res.on('data', function(chunk) {
-    data += chunk;
-  });
-  res.on('end', function() {
-    var parsed = JSON.parse(data);
-    assert(!parsed.timed_out);
-  });
-}).end();
-
+request('http://127.0.0.1:1040/search?q=bob', function(err, res, body) {
+  var parsed
+  //console.log(body)
+  try {
+    parsed = JSON.parse(body)
+  } catch (e) {
+    assert(false, 'should be able to parse body')
+  }
+  assert(parsed.ok)
+})

@@ -8,7 +8,7 @@
     "type": "git", 
     "url": "http://github.com/free103point9/api.free103point9.org.git"
   }, 
-  "scripts": {"test" : "find test/test-*.js | xargs -n 1 -t node"}, 
+  "scripts": {"test" : "node test/setup.js > /dev/null; find test/test-*.js | xargs -n 1 -t node; node test/takedown.js"}, 
   "dependencies": { 
     "es": "0.0.4",
     "stack": "0.1.0"
