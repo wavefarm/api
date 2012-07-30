@@ -3,9 +3,14 @@ var fs = require('fs')
 
 // start server
 var child = fork('server.js', {env: {PORT: '1040'}})
-// write server pid to file for takedown
-fs.writeFile('/tmp/free103apitest.pid', child.pid, function(err) {
-  if (err) throw err
-  // exit this process to end setup
-  process.exit()
+
+child.on('message', function(m) {
+  if (m == 'listening') {
+    // write server pid to file for takedown
+    fs.writeFile('/tmp/free103apitest.pid', child.pid, function(err) {
+      if (err) throw err
+      // exit this process to end setup
+      process.exit()
+    })
+  }
 })
