@@ -12,6 +12,7 @@
   "dependencies": { 
     "es": "0.0.4",
     "pile": "0.0.3",
+    "rut": "0.0.1",
     "stack": "0.1.0"
   },
   "devDependencies": {
