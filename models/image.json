@@ -1,0 +1,19 @@
+{
+  "name": "image",
+  "description": "Image model.",
+  "fields": [
+    {
+      "name": "active",
+      "type": "boolean"
+    },
+    {
+      "name": "title",
+      "main": true,
+      "sort": true
+    },
+    {
+      "name": "date",
+      "sort": true
+    }
+  ]
+}
