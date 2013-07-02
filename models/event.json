@@ -11,6 +11,10 @@
       "main": true
     },
     {
+      "name": "date",
+      "sort": true
+    },
+    {
       "name": "startTime",
       "sort": true
     },

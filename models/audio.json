@@ -1,0 +1,19 @@
+{
+  "name": "audio",
+  "description": "Audio model.",
+  "fields": [
+    {
+      "name": "active",
+      "type": "boolean"
+    },
+    {
+      "name": "title",
+      "main": true,
+      "sort": true
+    },
+    {
+      "name": "date",
+      "sort": true
+    }
+  ]
+}
