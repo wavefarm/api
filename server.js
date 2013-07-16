@@ -1,3 +1,4 @@
+var hedge = require('hedge')
 var http = require('http')
 var rut = require('rut')
 var stack = require('stack')
@@ -6,6 +7,7 @@ var util = require('util')
 var port = process.env.PORT || process.argv[2] || 1039
 
 http.createServer(stack(
+  hedge(),
   rut('/', require('./routes')),
   rut('/search', require('./routes/search')),
   rut.post('/bulk', require('./routes/bulk'))
