@@ -1,8 +1,9 @@
 var fork = require('child_process').fork
 var fs = require('fs')
 
+console.log(process.env)
 // start server
-var child = fork('server.js', {env: {PORT: '1040'}})
+var child = fork('server.js', {env: process.env})
 
 child.on('message', function(m) {
   if (m == 'listening') {

@@ -15,8 +15,10 @@
     "es": "0.0.4",
     "pile": "0.0.3",
     "rut": "0.0.1",
-    "stack": "0.1.0",
-    "hedge": "0.0.6"
+    "stack": "git://github.com/gsf/stack.git",
+    "hedge": "0.0.6",
+    "elasticsearch": "~0.3.5",
+    "log-timestamp": "~0.1.0"
   },
   "devDependencies": {
     "request": "2.9.203"
