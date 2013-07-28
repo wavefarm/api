@@ -33,13 +33,15 @@ module.exports = function (req, res, next) {
       {timestamp: 'desc'}
     ]
   }
-  // TODO handle sort
   es.search({
     _types: ['artist', 'work', 'event', 'audio', 'video', 'image', 'text']
   }, queryBody, function (err, data) {
-    if (err) {
-      next(err)
-    }
-    res.end(JSON.stringify(data))
+    if (err) return next(err)
+    res.end(JSON.stringify({
+      total: data.hits.total,
+      hits: data.hits.hits.map(function (hit) {
+        return hit._source
+      })
+    }))
   })
 }
