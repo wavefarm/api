@@ -56,11 +56,6 @@ module.exports = function(req, res) {
   var data = '', query = url.parse(req.url, true).query;
   req.on('data', function(chunk) {data += chunk;});
   req.on('end', function() {
-    if (query.clean) {
-      res.writeHead(301, {'Content-Type': 'application/json'});
-      res.end('{"moved": "Use replace instead"}');
-      return;
-    }
     if (query.replace) {
       // TODO switch to new es api if it gets extended
       // check aliases for which index to create
