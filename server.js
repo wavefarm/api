@@ -9,7 +9,7 @@ require('log-timestamp')
 var port = process.env.PORT || process.argv[2] || 1039
 
 stack.errorHandler = function (req, res, err) {
-  console.error('Error:', err.message)
+  console.error(err)
   res.writeHead(500)
   res.end('{"message": "Internal server error"}\n')
 }
