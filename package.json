@@ -1,12 +1,12 @@
 {
-  "name": "api.free103point9.org",
-  "description": "API for free103point9.org",
+  "name": "api.wavefarm.org",
+  "description": "API for Wave Farm sites",
   "version": "0.0.0",
   "author": "Gabriel Farrell <g@grrawr.com>",
   "engines": {
     "node": ">=0.8.0"
   },
-  "repository": "http://github.com/free103point9/api.free103point9.org.git",
+  "repository": "http://github.com/wavefarm/api.wavefarm.org.git",
   "dependencies": {
     "es": "0.0.4",
     "pile": "0.0.3",
