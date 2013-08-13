@@ -1,4 +1,3 @@
-var hedge = require('hedge')
 var http = require('http')
 var rut = require('rut')
 var stack = require('stack')
