@@ -6,11 +6,7 @@
   "engines": {
     "node": ">=0.8.0"
   },
-  "main": "server",
   "repository": "http://github.com/free103point9/api.free103point9.org.git",
-  "scripts": {
-    "test": "node test/tools/setup.js && find test/*.js | xargs -n 1 -t node && node test/tools/teardown.js"
-  },
   "dependencies": {
     "es": "0.0.4",
     "pile": "0.0.3",
@@ -19,8 +15,5 @@
     "hedge": "0.0.6",
     "elasticsearch": "~0.3.5",
     "log-timestamp": "~0.1.0"
-  },
-  "devDependencies": {
-    "request": "2.9.203"
   }
 }
