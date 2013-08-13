@@ -2,10 +2,10 @@ var es = require('es')
 var fs = require('fs')
 var url = require('url')
 
-models = {};
-fs.readdirSync(__dirname + '/../models').forEach(function (file) {
-  var model = file.replace(/\.[^.]+$/, ''); // drop extension
-  models[model] = require('../models/' + file)
+schemas = {};
+fs.readdirSync(__dirname + '/../schemas').forEach(function (file) {
+  var schema = file.replace(/\.[^.]+$/, ''); // drop extension
+  schemas[schema] = require('../schemas/' + file)
 });
 
 var getSettings = function() {
@@ -27,11 +27,10 @@ var getSettings = function() {
       }
     }
   };
-  for (model in models) {
-    if (model.indexOf('.') == -1) {
-      //console.log('Model!', model);
-      var fields = models[model].fields;
-      settings.mappings[model] = {
+  for (schema in schemas) {
+    if (schema.indexOf('.') == -1) {
+      var fields = schemas[schema].fields;
+      settings.mappings[schema] = {
         properties: {}
       };
       for (var i=0, l=fields.length, field; i<l; i++) {
@@ -44,7 +43,7 @@ var getSettings = function() {
             }
           };
           sortField.fields[field.name] = {type: 'string'};
-          settings.mappings[model].properties[field.name] = sortField;
+          settings.mappings[schema].properties[field.name] = sortField;
         }
       }
     }
