@@ -31,7 +31,6 @@ var reqLog = function (req, res, next) {
 }
 
 http.createServer(stack(
-  hedge(),
   jsonContent,
   reqLog,
   rut('/', require('./routes')),
