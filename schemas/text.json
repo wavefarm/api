@@ -12,8 +12,28 @@
       "sort": true
     },
     {
+      "name": "description",
+      "type": "text"
+    },
+    {
       "name": "date",
-      "sort": true
+      "type": "date"
+    },
+    {
+      "name": "oldId",
+      "type": "integer"
+    },
+    {
+      "name": "events",
+      "type": "rel:event"
+    },
+    {
+      "name": "artists",
+      "type": "rel:artist"
+    },
+    {
+      "name": "sites",
+      "type": "rel:site"
     }
   ]
 }

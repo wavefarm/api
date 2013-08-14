@@ -1,10 +1,13 @@
 {
   "name": "work",
-  "description": "Generic, top-level work model.",
+  "description": "Generic, top-level work schema.",
   "fields": [
     {
       "name": "active",
       "type": "boolean"
+    },
+    {
+      "name": "nonsort"
     },
     {
       "name": "title",
@@ -12,8 +15,11 @@
       "sort": true
     },
     {
-      "name": "date",
-      "sort": true
+      "name": "subtitle"
+    },
+    {
+      "name": "datePublished",
+      "type": "date"
     },
     {
       "name": "description",
@@ -43,28 +49,36 @@
       "type": "integer"
     },
     {
-      "name": "relatedFiles",
+      "name": "files",
       "type": "rel:file"
     },
     {
-      "name": "relatedArtists",
+      "name": "artists",
       "type": "rel:artist"
     },
     {
-      "name": "relatedShows",
+      "name": "shows",
       "type": "rel:show"
     },
     {
-      "name": "relatedEvents",
+      "name": "events",
       "type": "rel:event"
     },
     {
-      "name": "seeAlso",
+      "name": "works",
       "type": "rel:work"
     },
     {
-      "name": "timestamp",
-      "type": "timestamp"
+      "name": "audio",
+      "type": "rel:audio"
+    },
+    {
+      "name": "categories",
+      "type": "rel:category"
+    },
+    {
+      "name": "sites",
+      "type": "rel:site"
     }
   ]
 }
