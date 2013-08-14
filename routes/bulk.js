@@ -1,12 +1,6 @@
+var schemas = require('../schemas')
 var es = require('es')
-var fs = require('fs')
 var url = require('url')
-
-schemas = {};
-fs.readdirSync(__dirname + '/../schemas').forEach(function (file) {
-  var schema = file.replace(/\.[^.]+$/, ''); // drop extension
-  schemas[schema] = require('../schemas/' + file)
-});
 
 var getSettings = function() {
   var settings = { 
