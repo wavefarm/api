@@ -34,6 +34,7 @@ http.createServer(stack(
   reqLog,
   rut('/', require('./routes')),
   rut('/search', require('./routes/search')),
+  rut.get(/^\/(\w{6})$/, require('./routes/itemGet')),
   rut.post('/bulk', require('./routes/bulk'))
 )).listen(port, function () {
   console.log('Listening on port', port)
