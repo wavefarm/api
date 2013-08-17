@@ -2,21 +2,22 @@ var http = require('http')
 var rut = require('rut')
 var stack = require('stack')
 
-// Timestamp all output
-require('log-timestamp')
+// Timestamp logs
+require('logstamp')
 
 var port = process.env.PORT || process.argv[2] || 1039
 
-stack.errorHandler = function (req, res, err) {
-  console.error(err)
-  res.writeHead(500)
-  res.end('{"message": "Internal server error"}\n')
-}
-
-stack.notFoundHandler = function (req, res) {
-  console.warn('Warning: Not Found')
-  res.writeHead(404)
-  res.end('{"message": "not found"}\n')
+stack.handler = function (req, res, err) {
+  if (err) {
+    console.error(err.stack)
+    res.statusCode = 500
+    res.end('{"message": "Internal server error"}\n')
+  } else {
+    console.warn('Warning: Not Found')
+    res.statusCode = 404
+    res.end('Not Found\n')
+    res.end('{"message": "not found"}\n')
+  }
 }
 
 var jsonContent = function (req, res, next) {
@@ -36,7 +37,7 @@ http.createServer(stack(
   rut('/search', require('./routes/search')),
   rut('/schemas', require('./routes/schemas')),
   rut.get(/^\/(\w{6})$/, require('./routes/itemGet')),
-  //rut.put(/^\/(\w{6})$/, require('./routes/itemPut')),
+  rut.put(/^\/(\w{6})$/, require('./routes/itemPut')),
   rut.post('/bulk', require('./routes/bulk'))
 )).listen(port, function () {
   console.log('Listening on port', port)

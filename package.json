@@ -10,9 +10,10 @@
   "dependencies": {
     "es": "0.0.4",
     "pile": "0.0.3",
-    "rut": "0.0.1",
+    "rut": "0.0.6",
     "stack": "git://github.com/gsf/stack.git",
     "elasticsearch": "~0.3.5",
-    "log-timestamp": "~0.1.0"
+    "logstamp": "0.0.2",
+    "scalpel": "0.0.4"
   }
 }
