@@ -13,7 +13,15 @@
     },
     {
       "name": "date",
-      "sort": true
+      "sort": true,
+      "type": "date"
+    },
+    {
+      "name": "caption"
+    },
+    {
+      "name": "url",
+      "type": "url"
     }
   ]
 }
