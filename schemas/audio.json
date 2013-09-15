@@ -20,6 +20,12 @@
       "name": "caption"
     },
     {
+      "name": "mimetype"
+    },
+    {
+      "name": "collaborators"
+    },
+    {
       "name": "url",
       "type": "url"
     }

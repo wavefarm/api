@@ -19,7 +19,11 @@
       "sort": true
     },
     {
-      "name": "description",
+      "name": "briefDescription",
+      "type": "text"
+    },
+    {
+      "name": "longDescription",
       "type": "text"
     },
     {
