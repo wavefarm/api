@@ -1,39 +1,33 @@
 {
   "name": "text",
   "description": "Text model.",
-  "fields": [
-    {
-      "name": "active",
+  "main": "title",
+  "brief": [
+    "date",
+    "caption",
+    "mimetype",
+    "url"
+  ],
+  "item": [
+    "active",
+    "url",
+    "title",
+    "caption",
+    "mimetype",
+    "date"
+  ],
+  "fields": {
+    "active": {
       "type": "boolean"
     },
-    {
-      "name": "title",
-      "main": true,
-      "sort": true
-    },
-    {
-      "name": "description",
-      "type": "text"
-    },
-    {
-      "name": "date",
+    "title": {},
+    "date": {
       "type": "date"
     },
-    {
-      "name": "oldId",
-      "type": "integer"
-    },
-    {
-      "name": "events",
-      "type": "rel:event"
-    },
-    {
-      "name": "artists",
-      "type": "rel:artist"
-    },
-    {
-      "name": "sites",
-      "type": "rel:site"
+    "caption": {},
+    "mimetype": {},
+    "url": {
+      "type": "url"
     }
-  ]
+  }
 }

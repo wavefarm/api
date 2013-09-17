@@ -1,33 +1,33 @@
 {
   "name": "audio",
   "description": "Audio model.",
-  "fields": [
-    {
-      "name": "active",
+  "main": "title",
+  "brief": [
+    "date",
+    "caption",
+    "mimetype",
+    "url"
+  ],
+  "item": [
+    "active",
+    "url",
+    "title",
+    "caption",
+    "mimetype",
+    "date"
+  ],
+  "fields": {
+    "active": {
       "type": "boolean"
     },
-    {
-      "name": "title",
-      "main": true,
-      "sort": true
-    },
-    {
-      "name": "date",
-      "sort": true,
+    "title": {},
+    "date": {
       "type": "date"
     },
-    {
-      "name": "caption"
-    },
-    {
-      "name": "mimetype"
-    },
-    {
-      "name": "collaborators"
-    },
-    {
-      "name": "url",
+    "caption": {},
+    "mimetype": {},
+    "url": {
       "type": "url"
     }
-  ]
+  }
 }
