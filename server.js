@@ -3,7 +3,7 @@ var rut = require('rut')
 var stack = require('stack')
 
 // Timestamp logs
-require('logstamp')
+require('logstamp')(console)
 
 var port = process.env.PORT || process.argv[2] || 1039
 
