@@ -10,24 +10,23 @@
   ],
   "item": [
     "active",
-    "url",
     "title",
+    "url",
     "caption",
     "mimetype",
-    "date"
+    "date",
+    "collaborators",
+    "events"
   ],
   "fields": {
-    "active": {
-      "type": "boolean"
-    },
-    "title": {},
-    "date": {
-      "type": "date"
-    },
+    "active": {"type": "boolean"},
     "caption": {},
+    "collaborators": {"type": "rel:collaborator"},
+    "date": {"type": "date"},
+    "events": {"type": "rel:event"},
     "mimetype": {},
-    "url": {
-      "type": "url"
-    }
+    "timestamp": {"type": "date"},
+    "title": {},
+    "url": {"type": "url"}
   }
 }
