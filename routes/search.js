@@ -14,8 +14,7 @@ module.exports = function (req, res, next) {
   var queryString = url.parse(req.url, true).query.q
   var queryBody = {
     filter: {and: [
-      {term: {active: true}},
-      {term: {sites: 'transmissionarts.org'}}
+      {term: {active: true}}
     ]}
   }
   if (queryString) {
@@ -34,7 +33,7 @@ module.exports = function (req, res, next) {
     ]
   }
   es.search({
-    _types: ['artist', 'work', 'event', 'audio', 'video', 'image', 'text']
+    _types: ['artist', 'collaborator', 'work', 'event', 'audio', 'video', 'image', 'text']
   }, queryBody, function (err, data) {
     if (err) return next(err)
     res.end(JSON.stringify({
