@@ -32,9 +32,17 @@ module.exports = function (req, res, next) {
       {timestamp: 'desc'}
     ]
   }
-  es.search({
-    _types: ['artist', 'collaborator', 'work', 'event', 'audio', 'video', 'image', 'text']
-  }, queryBody, function (err, data) {
+  es.search({_types: [
+    'artist',
+    'collaborator',
+    'work',
+    'event',
+    'audio',
+    'video',
+    'image',
+    'text',
+    'show'
+  ]}, queryBody, function (err, data) {
     if (err) return next(err)
     res.end(JSON.stringify({
       total: data.hits.total,
