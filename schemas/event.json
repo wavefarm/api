@@ -1,54 +1,29 @@
 {
   "name": "event",
   "description": "Event model.",
-  "fields": [
-    {
-      "name": "active",
-      "type": "boolean"
-    },
-    {
-      "name": "name",
-      "main": true
-    },
-    {
-      "name": "date",
-      "sort": true
-    },
-    {
-      "name": "startTime",
-      "sort": true
-    },
-    {
-      "name": "briefDescription",
-      "type": "text"
-    },
-    {
-      "name": "longDescription",
-      "type": "text"
-    },
-    {
-      "name": "oldId",
-      "type": "integer"
-    },
-    {
-      "name": "relatedFiles",
-      "type": "rel:file"
-    },
-    {
-      "name": "relatedWorks",
-      "type": "rel:work"
-    },
-    {
-      "name": "relatedShows",
-      "type": "rel:show"
-    },
-    {
-      "name": "relatedEvents",
-      "type": "rel:event"
-    },
-    {
-      "name": "timestamp",
-      "type": "timestamp"
-    }
-  ]
+  "main": "name",
+  "item": [
+    "active",
+    "name",
+    "date",
+    "startTime",
+    "briefDescription",
+    "longDescription",
+    "files",
+    "works",
+    "shows",
+    "events"
+  ],
+  "fields": {
+    "active": {"type": "boolean"},
+    "name": {},
+    "date": {"type": "date"},
+    "startTime": {"type": "date"},
+    "briefDescription": {"type": "text"},
+    "longDescription": {"type": "text"},
+    "files": {"type": "rel:file"},
+    "works": {"type": "rel:work"},
+    "shows": {"type": "rel:show"},
+    "events": {"type": "rel:event"}
+  }
 }

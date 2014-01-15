@@ -17,17 +17,12 @@
     "date"
   ],
   "fields": {
-    "active": {
-      "type": "boolean"
-    },
+    "active": {"type": "boolean"},
     "title": {},
-    "date": {
-      "type": "date"
-    },
+    "date": {"type": "date"},
     "caption": {},
     "mimetype": {},
-    "url": {
-      "type": "url"
-    }
+    "url": {"type": "url"},
+    "description": {"type": "text"}
   }
 }
