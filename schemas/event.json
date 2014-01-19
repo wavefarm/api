@@ -9,12 +9,16 @@
     "startTime",
     "endDate",
     "endTime",
+    "categories",
+    "url",
     "briefDescription",
     "longDescription",
-    "files",
+    "artists",
     "works",
     "shows",
-    "events"
+    "events",
+    "image",
+    "locations"
   ],
   "fields": {
     "active": {"type": "boolean"},
@@ -23,11 +27,15 @@
     "startTime": {},
     "endDate": {"type": "date"},
     "endTime": {},
+    "categories": {"type": "select"},
+    "url": {"type": "url"},
     "briefDescription": {"type": "text"},
     "longDescription": {"type": "text"},
-    "files": {"type": "rel:file"},
+    "artists": {"type": "rel:artist"},
     "works": {"type": "rel:work"},
     "shows": {"type": "rel:show"},
-    "events": {"type": "rel:event"}
+    "locations": {"type": "rel:location"},
+    "events": {"type": "rel:event"},
+    "image": {"type": "rel:image"}
   }
 }
