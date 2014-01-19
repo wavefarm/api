@@ -1,0 +1,38 @@
+{
+  "name": "show",
+  "description": "Show model.",
+  "main": "title",
+  "item": [
+    "active",
+    "nonsort",
+    "title",
+    "subtitle",
+    "credit",
+    "dayAndTime",
+    "description",
+    "categories",
+    "files",
+    "artists",
+    "events",
+    "relatedShows"
+  ],
+  "fields": {
+    "active": {"type": "boolean"},
+    "nonsort": {},
+    "title": {},
+    "subtitle": {},
+    "credit": {},
+    "dayAndTime": {},
+    "description": {"type": "text"},
+    "categories": {"type": "select", "options": [
+      "music",
+      "Public affairs",
+      "transmission arts",
+      "youth programming"
+    ]},
+    "files": {"type": "rel:file"},
+    "artists": {"type": "rel:artist"},
+    "events": {"type": "rel:event"},
+    "relatedShows": {"type": "rel:show"}
+  }
+}

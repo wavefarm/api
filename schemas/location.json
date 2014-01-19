@@ -1,0 +1,29 @@
+{
+  "name": "location",
+  "description": "Location model.",
+  "main": "name",
+  "item": [
+    "active",
+    "name",
+    "address",
+    "address2",
+    "city",
+    "state",
+    "country",
+    "postalCode",
+    "phone",
+    "url"
+  ],
+  "fields": {
+    "active": {"type": "boolean"},
+    "name": {},
+    "address": {},
+    "address2": {},
+    "city": {},
+    "state": {"default": "NY"},
+    "country": {"default": "USA"},
+    "postalCode": {},
+    "phone": {},
+    "url": {"type": "url"}
+  }
+}
