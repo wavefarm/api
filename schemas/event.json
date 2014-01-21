@@ -18,7 +18,9 @@
     "shows",
     "events",
     "image",
-    "locations"
+    "locations",
+    "broadcastCategories",
+    "hosts"
   ],
   "fields": {
     "active": {"type": "boolean"},
@@ -36,6 +38,13 @@
     "shows": {"type": "rel:show"},
     "locations": {"type": "rel:location"},
     "events": {"type": "rel:event"},
-    "image": {"type": "rel:image"}
+    "image": {"type": "rel:image"},
+    "broadcastCategories": {"type": "select", "options": [
+      "music",
+      "Public affairs",
+      "transmission arts",
+      "youth programming"
+    ]},
+    "hosts": {"type": "rel:artist"}
   }
 }
