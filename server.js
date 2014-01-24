@@ -36,6 +36,7 @@ http.createServer(stack(
   rut('/', require('./routes')),
   rut('/search', require('./routes/search')),
   rut('/schemas', require('./routes/schemas')),
+  rut('/wgxc/schedule/*', require('./routes/wgxc/schedule')),
   rut.get(/^\/(\w{6})$/, require('./routes/itemGet')),
   rut.put(/^\/(\w{6})$/, require('./routes/itemPut')),
   rut.post('/bulk', require('./routes/bulk'))
