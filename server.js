@@ -11,17 +11,24 @@ stack.handler = function (req, res, err) {
   if (err) {
     console.error(err.stack)
     res.statusCode = 500
-    res.end('{"message": "Internal server error"}\n')
+    res.send('{"message": "Internal server error"}\n')
   } else {
     console.warn('Warning: Not Found')
     res.statusCode = 404
-    res.end('Not Found\n')
-    res.end('{"message": "not found"}\n')
+    res.send('{"message": "not found"}\n')
   }
 }
 
 var jsonContent = function (req, res, next) {
   res.setHeader('Content-Type', 'application/json')
+
+  // Provide a method that sets content length to avoid 
+  // transer-encoding: chunked in old nginx
+  res.send = function (content) {
+    res.setHeader('Content-Length', Buffer.byteLength(content))
+    res.end(content)
+  }
+
   next()
 }
 

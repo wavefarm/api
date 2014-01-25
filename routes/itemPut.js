@@ -9,7 +9,7 @@ module.exports = stack(
     var field, schema, item = req.parsedBody;
     res.invalid = function (errMessage) {
       res.statusCode = 422;
-      return res.end('{"error": "'+errMessage+'"}');
+      return res.send('{"error": "'+errMessage+'"}');
     };
     if (!item.type) return res.invalid('Item must have a type.');
     schema = schemas[item.type];
@@ -23,7 +23,7 @@ module.exports = stack(
     var id = req.params[0]
     es.index({_type: item.type, _id: id}, req.body, function (err, data) {
       if (err) return next(err)
-      res.end('{"ok": true}')
+      res.send('{"ok": true}')
     })
   }
 )
