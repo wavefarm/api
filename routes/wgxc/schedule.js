@@ -16,7 +16,7 @@ module.exports = function (req, res, next) {
         {term: {startDate: date}},
       ]
     },
-    sort: [{startTime: 'asc'}]
+    sort: [{start: 'asc'}]
   }
   es.search({_types: 'event'}, queryBody, function (err, data) {
     if (err) return next(err)
