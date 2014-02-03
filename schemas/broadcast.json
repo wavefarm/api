@@ -1,0 +1,38 @@
+{
+  "name": "broadcast",
+  "description": "Broadcast model.",
+  "main": "name",
+  "item": [
+    "active",
+    "name",
+    "start",
+    "end",
+    "description",
+    "hosts",
+    "guests",
+    "categories",
+    "shows",
+    "events",
+    "works",
+    "image",
+    "locations"
+  ],
+  "fields": {
+    "active": {"type": "boolean"},
+    "name": {},
+    "start": {"type": "date"},
+    "end": {"type": "date"},
+    "description": {"type": "text"},
+    "hosts": {"type": "rel:artist"},
+    "guests": {"type": "rel:artist"},
+    "works": {"type": "rel:work"},
+    "shows": {"type": "rel:show"},
+    "locations": {"type": "rel:location"},
+    "events": {"type": "rel:event"},
+    "image": {"type": "rel:image"},
+    "categories": {"type": "select", "options": [
+      "WGXC 90.7-FM",
+      "Wave Farm Radio"
+    ]}
+  }
+}
