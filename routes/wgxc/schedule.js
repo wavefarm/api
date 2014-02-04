@@ -6,10 +6,6 @@ var url = require('url')
 module.exports = function (req, res, next) {
   var date = req.params[0]
   var queryBody = {
-    query: {
-      // TODO We should be able to do this with a filter
-      field: {categories: 'WGXC: Hands-on Radio (90.7-FM) Event'}
-    },
     filter: {
       and: [
         {term: {active: true}},
@@ -18,7 +14,7 @@ module.exports = function (req, res, next) {
     },
     sort: [{start: 'asc'}]
   }
-  es.search({_types: 'event'}, queryBody, function (err, data) {
+  es.search({_types: 'broadcast'}, queryBody, function (err, data) {
     if (err) return next(err)
     res.send(JSON.stringify({
       total: data.hits.total,
