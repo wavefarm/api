@@ -1,6 +1,6 @@
-var elasticsearch = require('elasticsearch')
+var es = require('es')
 
-module.exports = elasticsearch({
+module.exports = es({
   _index: 'free103',
   server: {
     auth: process.env.ESAUTH || '', // set with user:pass

@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
     },
     sort: [{start: 'asc'}]
   }
-  es.search({_types: 'broadcast'}, queryBody, function (err, data) {
+  es.search({_type: 'broadcast'}, queryBody, function (err, data) {
     if (err) return next(err)
     res.send(JSON.stringify({
       total: data.hits.total,
