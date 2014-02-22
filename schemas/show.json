@@ -9,6 +9,7 @@
     "subtitle",
     "credit",
     "daytime",
+    "schedule",
     "description",
     "categories",
     "files",
@@ -23,6 +24,7 @@
     "subtitle": {},
     "credit": {},
     "daytime": {},
+    "schedule": {"type": "recurrence"},
     "description": {"type": "text"},
     "categories": {"type": "select", "options": [
       "music",
