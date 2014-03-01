@@ -1,97 +1,120 @@
-var es = require('./es')
-var RRule = require('rrule').RRule
+var es = require('./es');
+var RRule = require('rrule').RRule;
 
-var timeRe = /\d+:?\d* *(?:a|p).?m/ig
+module.exports = function (show) {
+  var airtime, options, rule, i, date, dates, broadcast, startDate, endDate;
 
-module.exports = function(show) {
-  var rule, i, starts, start, broadcast
-  if (!show.airtime) return
+  airtime = parseAirtime(show.airtime);
 
-  // Generate broadcasts for show
-  rule = parseAirtime(show.airtime)
-  console.log(rule.toString())
-  starts = rule.all()
-  i = 0
-  while (++i < starts.length) {
-    start = starts[i]
-    broadcast = {}
-    // TODO Save start and end as UTC
-    broadcast.start = start.toLocaleString()
-    start.setHours(times[1].hours, times[1].minutes, 0, 0)
+  if (!airtime) return;
+
+  options = {};
+  date = new Date();
+
+  // startDate should be set but use now in case it isn't
+  startDate = show.startDate ? new Date(show.startDate) : date;
+
+  // Set time on startDate to start time
+  startDate.setHours(airtime.start.hours, airtime.start.minutes, 0, 0);
+
+  options.dtstart = startDate;
+
+  // endDate should be set but when it isn't end at a year out
+  date.setFullYear(date.getFullYear() + 1);
+  endDate = show.endDate ? new Date(show.endDate) : date;
+
+  // Set time on endDate to the last second of the day
+  endDate.setHours(23, 59, 59, 999);
+  
+  options.until = endDate;
+
+  options.freq = RRule.MONTHLY;
+
+  //console.log(options);
+  rule = new RRule(options);
+
+  console.log(rule.toString());
+  dates = rule.all();
+  i = 0;
+  while (i < dates.length) {
+    date = dates[i];
+    broadcast = {};
+
+    // TODO Save date and end as UTC
+    broadcast.date = date.toLocaleString();
+    date.setHours(airtime.end.hours, airtime.end.minutes, 0, 0);
 
     // Set end to next day if we cross midnight
-    if (times[1].hours < times[0].hours) start.setDate(start.getDate() + 1)
+    if (airtime.end.hours < airtime.end.hours) {
+      date.setDate(date.getDate() + 1);
+    }
 
-    broadcast.end = start.toLocaleString()
-    broadcast.shows = [{id: show.id, main: show.main}]
-    broadcast.description = show.description
+    broadcast.end = date.toLocaleString();
+    broadcast.shows = [{id: show.id, main: show.main}];
+    if (show.description) broadcast.description = show.description;
 
-    console.log(broadcast)
-    break
+    console.log(broadcast);
+    break;
+
+    i++;
   }
 }
 
-// Returns an rrule with an added end time property
-// Can't create another rrule for end times because they may fall on the
-// following day -- so Wednesdays from 11pm to 2am would actually end on
-// Thursday mornings.
+// Returns an object with all of the airtime bits parsed out
+// Or undefined on parse error
 function parseAirtime (airtime) {
-  var times
-  times = getTimes(show.airtime)
-  if (times.length < 2) return console.log('Bad times', show.oldId, show.airtime)
+  var times, parsed;
 
-  startDate = show.startDate ? new Date(show.startDate) : new Date()
-  // Set time on startDate to start time
-  startDate.setHours(times[0].hours, times[0].minutes, 0, 0)
-  options.dtstart = startDate
-  // TODO show endDates should all be 2015-03-14, and default to that for
-  // this program term
-  options.until = new Date('2015-03-14') //new Date(show.endDate)
+  if (!airtime) return;
 
-  options = {}
+  times = getTimes(airtime);
+
+  if (times.length < 2) {
+    console.log('Bad times', airtime);
+    return;
+  }
+
+  parsed = {start: times[0], end: times[1]};
 
   // TODO parse out frequency, interval, etc. from airtime
-  options.freq = RRule.MONTHLY
 
-  //console.log(options)
-  rule = new RRule(options)
-  
+  return parsed;
 }
 
+var timeRe = /\d+:?\d* *(?:a|p).?m/ig;
+
 function getTimes (airtime) {
-  var ampm, hours, minutes, time, times, timeMatch, timeSplit
-  times = []
+  var ampm, hours, minutes, time, times, timeMatch, timeSplit;
+  times = [];
   while (timeMatch = timeRe.exec(airtime)) {
-    time = timeMatch[0]
+    time = timeMatch[0];
     //console.log(time)
-    time = time.replace('.', '')
+    time = time.replace('.', '');
     
     // Split off am/pm
-    timeSplit = time.split(' ')
-    if (timeSplit.length < 2) return console.log('no ampm')
-    time = timeSplit[0]
-    ampm = timeSplit[1]
+    timeSplit = time.split(' ');
+    if (timeSplit.length < 2) return console.log('no ampm');
+    time = timeSplit[0];
+    ampm = timeSplit[1];
     
     // Split into hours and minutes
-    timeSplit = time.split(':')
-    hours = timeSplit[0]
-    minutes = (timeSplit.length == 2) ? timeSplit[1] : '0'
+    timeSplit = time.split(':');
+    hours = timeSplit[0];
+    minutes = (timeSplit.length == 2) ? timeSplit[1] : '0';
 
-    if (ampm == 'am' && hours == '12') hours = '0'
-    if (ampm == 'pm' && hours != '12') hours = String(Number(hours) + 12)
-    //hours = ('0' + hours).substr(hours.length - 1)
+    if (ampm == 'am' && hours == '12') hours = '0';
+    if (ampm == 'pm' && hours != '12') hours = String(Number(hours) + 12);
+    //hours = ('0' + hours).substr(hours.length - 1);
 
-    time = {hours: Number(hours), minutes: Number(minutes)}
-    //console.log(time)
-    times.push(time)
-    //timeMatch = timeRe.exec(airtime)
+    time = {hours: Number(hours), minutes: Number(minutes)};
+    //console.log(time);
+    times.push(time);
   }
-  //times.push(timeRe.exec(airtime)[0]) // end time
   
   // Reset the regex index for the start of next string
-  timeRe.lastIndex = 0
+  timeRe.lastIndex = 0;
 
-  return times
+  return times;
 }
 
 if (require.main === module) {
@@ -99,10 +122,11 @@ if (require.main === module) {
   var queryBody = {
     filter: {term: {active: true}},
     size: 9999
-  }
+  };
   es.search({_type: 'show', }, queryBody, function (err, data) {
     data.hits.hits.forEach(function (hit) {
-      module.exports(hit._source)
-    })
-  })
+      //console.log(hit);
+      module.exports(hit._source);
+    });
+  });
 }
