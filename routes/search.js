@@ -13,12 +13,7 @@ function enhanceQuery (q) {
 
 module.exports = function (req, res, next) {
   var queryString = url.parse(req.url, true).query.q
-  var queryBody = {
-    filter: {or: [
-      {term: {active: true}},
-      {term: {public: true}}
-    ]}
-  }
+  var queryBody = {}
   if (queryString) {
     queryBody.query = {
       query_string: {
