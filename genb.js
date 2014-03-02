@@ -11,12 +11,13 @@ module.exports = function (show) {
   options = {};
   date = new Date();
 
-  // startDate should be set but use now in case it isn't
+  // startDate should be set but use the current if it isn't
   startDate = show.startDate ? new Date(show.startDate) : date;
 
   // Set time on startDate to start time
   startDate.setHours(airtime.start.hours, airtime.start.minutes, 0, 0);
 
+  //console.log(startDate);
   options.dtstart = startDate;
 
   // endDate should be set but when it isn't end at a year out
@@ -33,15 +34,17 @@ module.exports = function (show) {
   //console.log(options);
   rule = new RRule(options);
 
+  console.log(show.airtime)
   console.log(rule.toString());
   dates = rule.all();
   i = 0;
   while (i < dates.length) {
     date = dates[i];
-    broadcast = {};
+    broadcast = {
+      title: show.title
+    };
 
-    // TODO Save date and end as UTC
-    broadcast.date = date.toLocaleString();
+    broadcast.start = date.toISOString();
     date.setHours(airtime.end.hours, airtime.end.minutes, 0, 0);
 
     // Set end to next day if we cross midnight
@@ -49,9 +52,11 @@ module.exports = function (show) {
       date.setDate(date.getDate() + 1);
     }
 
-    broadcast.end = date.toLocaleString();
-    broadcast.shows = [{id: show.id, main: show.main}];
+    broadcast.end = date.toISOString();
+
     if (show.description) broadcast.description = show.description;
+    if (show.hosts) broadcast.hosts = show.hosts;
+    broadcast.shows = [{id: show.id, main: show.main}];
 
     console.log(broadcast);
     break;
@@ -124,6 +129,7 @@ if (require.main === module) {
     size: 9999
   };
   es.search({_type: 'show', }, queryBody, function (err, data) {
+    if (err) throw err;
     data.hits.hits.forEach(function (hit) {
       //console.log(hit);
       module.exports(hit._source);
