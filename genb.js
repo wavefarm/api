@@ -1,8 +1,9 @@
 var es = require('./es');
+var genid = require('./genid');
 var RRule = require('rrule').RRule;
 
 module.exports = function (show) {
-  var airtime, options, rule, i, date, dates, broadcast, startDate, endDate;
+  var airtime, options, rule, i, date, dates, broadcast, startDate, endDate, commands;
 
   airtime = parseAirtime(show.airtime);
 
@@ -10,27 +11,23 @@ module.exports = function (show) {
   //console.log(airtime);
 
   options = {};
+
+  // startDate should be set but use today's date if it isn't
   date = new Date();
-
-  // startDate should be set but use the current if it isn't
   startDate = show.startDate ? new Date(show.startDate) : date;
+  options.dtstart = ruleStart(startDate, airtime.start);
 
-  // Set time on startDate to start time
-  startDate.setHours(airtime.start.hours, airtime.start.minutes, 0, 0);
-
-  //console.log(startDate);
-  options.dtstart = startDate;
-
-  // endDate should be set but when it isn't end at a year out
+  // endDate should be set but end at a year out when it isn't
   date.setFullYear(date.getFullYear() + 1);
-  endDate = show.endDate ? new Date(show.endDate) : date;
+  options.until = show.endDate ? new Date(show.endDate+'T23:59:59-0400') : date;
 
-  // Set time on endDate to the last second of the day
-  endDate.setHours(23, 59, 59, 999);
-  
-  options.until = endDate;
-
-  options.freq = RRule.MONTHLY;
+  if (airtime.monthday) {
+    options.freq = RRule.MONTHLY;
+    options.bymonthday = airtime.monthday;
+  } else if (airtime.weekly) {
+    options.freq = RRule.WEEKLY;
+    options.byweekday = airtime.weekly;
+  } else return;
 
   //console.log(options);
   rule = new RRule(options);
@@ -38,12 +35,20 @@ module.exports = function (show) {
   //console.log(show.airtime)
   //console.log(rule.toString());
   dates = rule.all();
+  commands = [];
+  //console.log(dates);
   i = 0;
   while (i < dates.length) {
     date = dates[i];
     broadcast = {
-      title: show.title
+      active: true,
+      main: show.title,
+      name: show.title,
+      type: 'broadcast',
+      id: genid(),
+      timestamp: (new Date()).toISOString()
     };
+    console.log(broadcast.id);
 
     broadcast.start = date.toISOString();
     date.setHours(airtime.end.hours, airtime.end.minutes, 0, 0);
@@ -60,10 +65,26 @@ module.exports = function (show) {
     broadcast.shows = [{id: show.id, main: show.main}];
 
     //console.log(broadcast);
-    break;
 
+    commands.push({index: {_index: 'free103', _type: 'broadcast', _id: broadcast.id}});
+    commands.push(broadcast);
+
+    break;
     i++;
   }
+
+  if (commands.length) {
+    es.bulk({}, commands, function (err, data) {
+      if (err) throw err;
+      console.log(data.items[0].index);
+    });
+  } else console.log('No broadcasts for ' + show.id);
+}
+
+function ruleStart (startDate, startTime) {
+  // Set time on startDate to start time
+  startDate.setHours(startTime.hours, startTime.minutes, 0, 0);
+  return startDate;
 }
 
 // Returns an object with all of the airtime bits parsed out
@@ -85,7 +106,10 @@ function parseAirtime (airtime) {
   // TODO parse out frequency, interval, etc. from airtime
 
   parsed.monthday = getMonthday(airtime);
-  if (parsed.monthday) console.log(parsed) //return parsed;
+  if (parsed.monthday) return parsed;
+
+  parsed.weekly = getWeekly(airtime);
+  if (parsed.weekly) return parsed;
 
   return parsed;
 }
@@ -94,7 +118,16 @@ var monthdayRe = /(\d+)th of the month/ig;
 function getMonthday (airtime) {
   var monthdayMatch = monthdayRe.exec(airtime);
   if (!monthdayMatch) return;
-  return monthdayMatch[1];
+  return Number(monthdayMatch[1]);
+}
+
+var weeklyArr = ['mondays', 'tuesdays', 'wednesdays', 'thursdays', 'fridays', 'saturdays', 'sundays'];
+var weeklyRe = RegExp(weeklyArr.join('|'), 'ig');
+function getWeekly (airtime) {
+  var weeklyMatch = weeklyRe.exec(airtime);
+  if (!weeklyMatch) return;
+  //console.log(weeklyMatch);
+  return weeklyArr.indexOf(weeklyMatch[0].toLowerCase());
 }
 
 var timeRe = /\d+:?\d* *(?:a|p).?m/ig;
