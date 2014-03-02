@@ -14,8 +14,9 @@ function enhanceQuery (q) {
 module.exports = function (req, res, next) {
   var queryString = url.parse(req.url, true).query.q
   var queryBody = {
-    filter: {and: [
-      {term: {active: true}}
+    filter: {or: [
+      {term: {active: true}},
+      {term: {public: true}}
     ]}
   }
   if (queryString) {
