@@ -9,7 +9,14 @@ module.exports = function (req, res, next) {
     filter: {
       and: [
         {term: {active: true}},
-        {term: {startDate: date}},
+        {
+          range: {
+            start: {
+              from: date + 'T00:00:00',
+              to: date + 'T23:59:59'
+            }
+          }
+        }
       ]
     },
     sort: [{start: 'asc'}]
