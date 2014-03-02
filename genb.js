@@ -135,7 +135,7 @@ function getTimes (airtime) {
 if (require.main === module) {
   // Script run directly; generate broadcasts for all shows
   var queryBody = {
-    filter: {term: {active: true}},
+    filter: {term: {public: true}},
     size: 9999
   };
   //console.log(queryBody);
