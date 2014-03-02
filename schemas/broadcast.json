@@ -3,8 +3,8 @@
   "description": "Broadcast model.",
   "main": "name",
   "item": [
-    "active",
-    "name",
+    "public",
+    "title",
     "start",
     "end",
     "description",
@@ -18,8 +18,8 @@
     "locations"
   ],
   "fields": {
-    "active": {"type": "boolean"},
-    "name": {},
+    "public": {"type": "boolean"},
+    "title": {},
     "start": {"type": "date"},
     "end": {"type": "date"},
     "description": {"type": "text"},
