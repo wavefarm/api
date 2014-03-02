@@ -7,6 +7,7 @@ module.exports = function (show) {
   airtime = parseAirtime(show.airtime);
 
   if (!airtime) return;
+  //console.log(airtime);
 
   options = {};
   date = new Date();
@@ -34,8 +35,8 @@ module.exports = function (show) {
   //console.log(options);
   rule = new RRule(options);
 
-  console.log(show.airtime)
-  console.log(rule.toString());
+  //console.log(show.airtime)
+  //console.log(rule.toString());
   dates = rule.all();
   i = 0;
   while (i < dates.length) {
@@ -58,7 +59,7 @@ module.exports = function (show) {
     if (show.hosts) broadcast.hosts = show.hosts;
     broadcast.shows = [{id: show.id, main: show.main}];
 
-    console.log(broadcast);
+    //console.log(broadcast);
     break;
 
     i++;
@@ -83,11 +84,20 @@ function parseAirtime (airtime) {
 
   // TODO parse out frequency, interval, etc. from airtime
 
+  parsed.monthday = getMonthday(airtime);
+  if (parsed.monthday) console.log(parsed) //return parsed;
+
   return parsed;
 }
 
-var timeRe = /\d+:?\d* *(?:a|p).?m/ig;
+var monthdayRe = /(\d+)th of the month/ig;
+function getMonthday (airtime) {
+  var monthdayMatch = monthdayRe.exec(airtime);
+  if (!monthdayMatch) return;
+  return monthdayMatch[1];
+}
 
+var timeRe = /\d+:?\d* *(?:a|p).?m/ig;
 function getTimes (airtime) {
   var ampm, hours, minutes, time, times, timeMatch, timeSplit;
   times = [];
@@ -128,7 +138,8 @@ if (require.main === module) {
     filter: {term: {active: true}},
     size: 9999
   };
-  es.search({_type: 'show', }, queryBody, function (err, data) {
+  //console.log(queryBody);
+  es.search({_type: 'show'}, queryBody, function (err, data) {
     if (err) throw err;
     data.hits.hits.forEach(function (hit) {
       //console.log(hit);
