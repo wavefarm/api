@@ -20,8 +20,10 @@
   "fields": {
     "public": {"type": "boolean"},
     "title": {},
-    "start": {"type": "date"},
-    "end": {"type": "date"},
+    "start": {"type": "datetime"},
+    "end": {"type": "datetime"},
+    "genStart": {"type": "datetime"},
+    "genEnd": {"type": "datetime"},
     "description": {"type": "text"},
     "hosts": {"type": "rel:artist"},
     "guests": {"type": "rel:artist"},
