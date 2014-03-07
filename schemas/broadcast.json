@@ -1,7 +1,7 @@
 {
   "name": "broadcast",
   "description": "Broadcast model.",
-  "main": "name",
+  "main": "title",
   "item": [
     "public",
     "title",
