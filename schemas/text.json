@@ -1,21 +1,6 @@
 {
   "name": "text",
-  "description": "Text model.",
   "main": "title",
-  "brief": [
-    "date",
-    "caption",
-    "mimetype",
-    "url"
-  ],
-  "item": [
-    "active",
-    "url",
-    "title",
-    "caption",
-    "mimetype",
-    "date"
-  ],
   "fields": {
     "active": {"type": "boolean"},
     "title": {},

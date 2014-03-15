@@ -1,27 +1,6 @@
 {
   "name": "event",
-  "description": "Event model.",
   "main": "name",
-  "item": [
-    "active",
-    "name",
-    "startDate",
-    "startTime",
-    "endDate",
-    "endTime",
-    "categories",
-    "url",
-    "briefDescription",
-    "longDescription",
-    "artists",
-    "works",
-    "shows",
-    "events",
-    "image",
-    "locations",
-    "broadcastCategories",
-    "hosts"
-  ],
   "fields": {
     "active": {"type": "boolean"},
     "name": {},
@@ -29,7 +8,7 @@
     "startTime": {},
     "endDate": {"type": "date"},
     "endTime": {},
-    "categories": {"type": "select"},
+    "categories": {},
     "url": {"type": "url"},
     "briefDescription": {"type": "text"},
     "longDescription": {"type": "text"},
@@ -39,12 +18,7 @@
     "locations": {"type": "rel:location"},
     "events": {"type": "rel:event"},
     "image": {"type": "rel:image"},
-    "broadcastCategories": {"type": "select", "options": [
-      "music",
-      "Public affairs",
-      "transmission arts",
-      "youth programming"
-    ]},
+    "broadcastCategories": {},
     "hosts": {"type": "rel:artist"}
   }
 }

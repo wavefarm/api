@@ -1,22 +1,6 @@
 {
   "name": "broadcast",
-  "description": "Broadcast model.",
   "main": "title",
-  "item": [
-    "public",
-    "title",
-    "start",
-    "end",
-    "description",
-    "hosts",
-    "guests",
-    "categories",
-    "shows",
-    "events",
-    "works",
-    "image",
-    "locations"
-  ],
   "fields": {
     "public": {"type": "boolean"},
     "title": {},
@@ -32,9 +16,6 @@
     "locations": {"type": "rel:location"},
     "events": {"type": "rel:event"},
     "image": {"type": "rel:image"},
-    "categories": {"type": "select", "options": [
-      "WGXC 90.7-FM",
-      "Wave Farm Radio"
-    ]}
+    "categories": {}
   }
 }

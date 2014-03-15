@@ -1,23 +1,6 @@
 {
   "name": "audio",
-  "description": "Audio model.",
   "main": "title",
-  "brief": [
-    "date",
-    "caption",
-    "mimetype",
-    "url"
-  ],
-  "item": [
-    "active",
-    "title",
-    "url",
-    "caption",
-    "mimetype",
-    "date",
-    "collaborators",
-    "events"
-  ],
   "fields": {
     "active": {"type": "boolean"},
     "caption": {},
