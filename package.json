@@ -9,10 +9,10 @@
   "repository": "http://github.com/wavefarm/api.wavefarm.org.git",
   "dependencies": {
     "es": "~0.3.16",
-    "pile": "0.0.3",
+    "pile": "0.0.5",
     "rut": "0.0.6",
     "stack": "git://github.com/gsf/stack.git",
-    "logstamp": "0.4.0",
+    "logstamp": "^0.5.0",
     "scalpel": "0.0.4",
     "rrule": "^2.0.1"
   }
