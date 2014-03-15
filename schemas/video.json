@@ -1,0 +1,15 @@
+{
+  "name": "video",
+  "main": "title",
+  "fields": {
+    "active": {"type": "boolean"},
+    "caption": {},
+    "collaborators": {"type": "rel:collaborator"},
+    "date": {"type": "date"},
+    "events": {"type": "rel:event"},
+    "mimetype": {},
+    "timestamp": {"type": "date"},
+    "title": {},
+    "url": {"type": "url"}
+  }
+}
