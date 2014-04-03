@@ -19,6 +19,11 @@ stack.handler = function (req, res, err) {
   }
 }
 
+var cors = function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  next()
+}
+
 var jsonContent = function (req, res, next) {
   res.setHeader('Content-Type', 'application/json')
 
@@ -38,6 +43,7 @@ var reqLog = function (req, res, next) {
 }
 
 http.createServer(stack(
+  cors,
   jsonContent,
   reqLog,
   rut('/', require('./routes')),
