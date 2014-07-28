@@ -12,13 +12,13 @@ function enhanceQuery (q) {
 }
 
 module.exports = function (req, res, next) {
-  var queryString = url.parse(req.url, true).query.q
+  var params = url.parse(req.url, true).query
   var queryBody = {}
-  if (queryString) {
+  if (params.q) {
     queryBody.query = {
       query_string: {
         'default_operator': 'AND',
-        query: enhanceQuery(queryString)
+        query: enhanceQuery(params.q)
       }
     }
   } else {
@@ -29,6 +29,8 @@ module.exports = function (req, res, next) {
       {timestamp: 'desc'}
     ]
   }
+  if (params.from) queryBody.from = params.from
+  if (params.size) queryBody.size = params.size
   es.search({_types: Object.keys(schemas)}, queryBody, function (err, data) {
     if (err) return next(err)
     res.send(JSON.stringify({
