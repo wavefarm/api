@@ -67,7 +67,6 @@ module.exports = function (req, res, next) {
   }
   if (params.from) search.from = params.from
   if (params.size) search.size = params.size
-  console.log(search.query.filtered)
   es.search({_types: Object.keys(schemas)}, search, function (err, data) {
     if (err) return next(err)
     res.send(JSON.stringify({
