@@ -2,8 +2,6 @@ var http = require('http')
 var rut = require('rut')
 var stack = require('stack')
 
-// Timestamp logs
-require('logstamp')()
 
 var port = process.env.PORT || process.argv[2] || 1039
 
