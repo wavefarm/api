@@ -13,25 +13,62 @@ function enhanceQuery (q) {
 
 module.exports = function (req, res, next) {
   var params = url.parse(req.url, true).query
-  var queryBody = {}
+  var search = {
+    query: {filtered: {}},
+    sort: [
+      {timestamp: 'desc'}
+    ]
+  }
   if (params.q) {
-    queryBody.query = {
+    search.query.filtered.query = {
       query_string: {
         'default_operator': 'AND',
         query: enhanceQuery(params.q)
       }
     }
-  } else {
-    queryBody.query = {
-      match_all: {}
-    }
-    queryBody.sort = [
-      {timestamp: 'desc'}
-    ]
+    // When there's a q we sort by relevance
+    delete search.sort
   }
-  if (params.from) queryBody.from = params.from
-  if (params.size) queryBody.size = params.size
-  es.search({_types: Object.keys(schemas)}, queryBody, function (err, data) {
+  if (params.date) {
+    search.query.filtered.filter = {
+      or: [
+        {
+          range: {
+            'date.sort': {
+              gte: params.date,
+              lte: params.date
+            }
+          }
+        },
+        {
+          and: [
+            {
+              range: {
+                start: {
+                  lte: params.date
+                }
+              }
+            },
+            {
+              range: {
+                end: {
+                  gte: params.date
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+  if (params.date2) {
+    search.query.filtered.filter.or[0].range['date.sort'].lte = params.date2
+    search.query.filtered.filter.or[1].and[0].range.start.lte = params.date2
+  }
+  if (params.from) search.from = params.from
+  if (params.size) search.size = params.size
+  console.log(search.query.filtered)
+  es.search({_types: Object.keys(schemas)}, search, function (err, data) {
     if (err) return next(err)
     res.send(JSON.stringify({
       total: data.hits.total,
