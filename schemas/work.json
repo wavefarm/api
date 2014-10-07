@@ -5,7 +5,7 @@
     "nonsort": {},
     "title": {},
     "subtitle": {},
-    "datePublished": {"type": "date"},
+    "date": {"type": "date"},
     "description": {"type": "text"},
     "url": {"type": "url"},
     "categories": {},
