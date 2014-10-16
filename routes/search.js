@@ -60,10 +60,10 @@ module.exports = function (req, res, next) {
         }
       ]
     }
-  }
-  if (params.date2) {
-    search.query.filtered.filter.or[0].range['date.sort'].lte = params.date2
-    search.query.filtered.filter.or[1].and[0].range.start.lte = params.date2
+    if (params.date2) {
+      search.query.filtered.filter.or[0].range['date.sort'].lte = params.date2
+      search.query.filtered.filter.or[1].and[0].range.start.lte = params.date2
+    }
   }
   if (params.from) search.from = params.from
   if (params.size) search.size = params.size
