@@ -13,8 +13,19 @@ function enhanceQuery (q) {
 
 module.exports = function (req, res, next) {
   var params = url.parse(req.url, true).query
+  var dateFilter
   var search = {
-    query: {filtered: {}},
+    query: {filtered: {
+      filter: {
+        and: [
+          {or: [
+            // XXX Separate endpoints for public and admin searches?
+            {term: {active: true}},
+            {term: {public: true}}
+          ]}
+        ]
+      }
+    }},
     sort: [
       {timestamp: 'desc'}
     ]
@@ -30,7 +41,7 @@ module.exports = function (req, res, next) {
     delete search.sort
   }
   if (params.date) {
-    search.query.filtered.filter = {
+    dateFilter = {
       or: [
         {
           range: {
@@ -61,9 +72,10 @@ module.exports = function (req, res, next) {
       ]
     }
     if (params.date2) {
-      search.query.filtered.filter.or[0].range['date.sort'].lte = params.date2
-      search.query.filtered.filter.or[1].and[0].range.start.lte = params.date2
+      dateFilter.or[0].range['date.sort'].lte = params.date2
+      dateFilter.or[1].and[0].range.start.lte = params.date2
     }
+    search.query.filtered.filter.and.push(dateFilter)
   }
   if (params.from) search.from = params.from
   if (params.size) search.size = params.size
