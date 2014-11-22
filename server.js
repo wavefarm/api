@@ -53,5 +53,5 @@ http.createServer(stack(
   rut.post('/bulk', require('./routes/bulk'))
 )).listen(port, function () {
   console.log('Listening on port', port)
-  if (process.send) process.send('listening') // for tests
+  if (process.send) process.send('online')
 })
