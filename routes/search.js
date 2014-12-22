@@ -20,6 +20,8 @@ module.exports = function (req, res, next) {
         and: [
           {or: [
             // XXX Separate endpoints for public and admin searches?
+            // If authenticated show all by default and allow parameters
+            // to filter by public/private.
             {term: {active: true}},
             {term: {public: true}}
           ]}
