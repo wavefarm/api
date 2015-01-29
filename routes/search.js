@@ -14,6 +14,7 @@ function enhanceQuery (q) {
 module.exports = function (req, res, next) {
   var params = url.parse(req.url, true).query
   var dateFilter
+  var sortArray
   var search = {
     query: {filtered: {
       filter: {
@@ -81,6 +82,18 @@ module.exports = function (req, res, next) {
   }
   if (params.from) search.from = params.from
   if (params.size) search.size = params.size
+  if (params.sort) {
+    // Parse sort param like "-date.sort,name"
+    search.sort = params.sort.split(',').map(function (s) {
+      var so = {}
+      if (s.charAt(0) === '-') {
+        so[s.substr(1)] = 'desc'
+      } else {
+        so[s] = 'asc'
+      }
+      return so
+    })
+  }
   es.search({_types: Object.keys(schemas)}, search, function (err, data) {
     if (err) return next(err)
     res.send(JSON.stringify({
