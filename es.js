@@ -1,7 +1,7 @@
 var es = require('es')
 
 module.exports = es({
-  _index: 'free103',
+  _index: process.env.ESINDEX || 'free103',
   server: {
     auth: process.env.ESAUTH || '', // set with user:pass
     host: process.env.ESHOST || 'localhost',
