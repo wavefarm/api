@@ -14,12 +14,11 @@ module.exports = stack(
     if (!item.type) return res.invalid('Item must have a type.');
     schema = schemas[item.type];
     if (!schema) return res.invalid('No schema found for that type.');
-    schema.item.forEach(function (fieldName) {
-      field = schema.fields[fieldName];
+    for (var field in schema.fields) {
       if (field.type && field.type.indexOf('rel') === 0) {
         // TODO retrieve mains for related items
       }
-    });
+    }
     var id = req.params[0]
     es.index({_type: item.type, _id: id}, req.body, function (err, data) {
       if (err) return next(err)
