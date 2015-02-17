@@ -9,7 +9,7 @@ module.exports = stack(
     var field, schema, item = req.parsedBody;
     res.invalid = function (errMessage) {
       res.statusCode = 422;
-      return res.send('{"error": "'+errMessage+'"}');
+      return res.send('{"message":"'+errMessage+'"}');
     };
     if (!item.type) return res.invalid('Item must have a type.');
     schema = schemas[item.type];
