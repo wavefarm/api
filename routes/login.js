@@ -26,7 +26,7 @@ module.exports = stack(
       if (err) return next(err)
       if (!data.hits.hits.length) return next()
       var user = data.hits.hits[0]._source
-      res.send('{"ok":true,"user":' + JSON.stringify(user) + '}')
+      res.send(JSON.stringify(user))
     })
   }
 )
