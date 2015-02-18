@@ -1,5 +1,6 @@
 {
   "name": "user",
+  "main": "name",
   "fields": {
     "name": {},
     "password": {},
