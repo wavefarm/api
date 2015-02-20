@@ -3,7 +3,7 @@
   "main": "name",
   "fields": {
     "name": {},
-    "password": {},
+    "password": {"type": "password"},
     "token": {},
     "lastLogin": {"type": "date"},
     "email": {"type": "email"},
