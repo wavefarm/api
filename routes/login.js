@@ -24,7 +24,10 @@ module.exports = stack(
       }
     }, function (err, data) {
       if (err) return next(err)
-      if (!data.hits.hits.length) return next()
+      if (!data.hits.hits.length) {
+        res.statusCode = 401
+        return res.send('{"message": "Unauthorized"}')
+      }
       var user = data.hits.hits[0]._source
       res.send(JSON.stringify(user))
     })
