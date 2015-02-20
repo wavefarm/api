@@ -10,8 +10,7 @@ module.exports = stack(
     var password = req.parsedBody.password
     var token = req.parsedBody.token
     if (!(username && password) && !token) {
-      res.statusCode = 400
-      return res.send('{"message": "Bad Request"}\n')
+      return next({status: 400, message: "Bad Request"})
     }
     var filter = token ? {term: {token: token}} : {
       and: [
@@ -24,10 +23,7 @@ module.exports = stack(
       }
     }, function (err, data) {
       if (err) return next(err)
-      if (!data.hits.hits.length) {
-        res.statusCode = 401
-        return res.send('{"message": "Unauthorized"}')
-      }
+      if (!data.hits.hits.length) return next({status: 401, message: "Unauthorized"})
       var user = data.hits.hits[0]._source
       res.send(JSON.stringify(user))
     })
