@@ -19,7 +19,7 @@ module.exports = stack(
         {term: {password: password}}
       ]
     }
-    es.search({_types: ['user']}, {query: {
+    es.search({_type: 'user'}, {query: {
         filtered: {filter: filter}
       }
     }, function (err, data) {
