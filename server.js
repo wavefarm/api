@@ -7,14 +7,17 @@ var port = process.env.PORT || process.argv[2] || 1039
 
 stack.handler = function (req, res, err) {
   if (err) {
+    if (err.status) {
+      res.statusCode = err.status
+      return res.send('{"message": "' + err.message + '"}\n')
+    }
     console.error(err.stack)
     res.statusCode = 500
-    res.send('{"message": "Internal server error"}\n')
-  } else {
-    console.warn('Warning: Not Found')
-    res.statusCode = 404
-    res.send('{"message": "not found"}\n')
+    return res.send('{"message": "Internal Server Error"}\n')
   }
+  console.warn('Warning: Not Found')
+  res.statusCode = 404
+  res.send('{"message": "Not Found"}\n')
 }
 
 var cors = function (req, res, next) {
