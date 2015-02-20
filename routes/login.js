@@ -8,19 +8,19 @@ module.exports = stack(
   function (req, res, next) {
     var username  = req.parsedBody.username
     var password = req.parsedBody.password
-    if (!(username && password)) {
+    var token = req.parsedBody.token
+    if (!(username && password) && !token) {
       res.statusCode = 400
       return res.send('{"message": "Bad Request"}\n')
     }
+    var filter = token ? {term: {token: token}} : {
+      and: [
+        {term: {name: username}},
+        {term: {password: password}}
+      ]
+    }
     es.search({_types: ['user']}, {query: {
-        filtered: {
-          filter: {
-            and: [
-              {term: {name: username}},
-              {term: {password: password}}
-            ]
-          }
-        }
+        filtered: {filter: filter}
       }
     }, function (err, data) {
       if (err) return next(err)
