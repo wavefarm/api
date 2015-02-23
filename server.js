@@ -9,15 +9,15 @@ stack.handler = function (req, res, err) {
   if (err) {
     if (err.status) {
       res.statusCode = err.status
-      return res.send('{"message": "' + err.message + '"}\n')
+      return res.send('{"message": "' + err.message + '"}')
     }
     console.error(err.stack)
     res.statusCode = 500
-    return res.send('{"message": "Internal Server Error"}\n')
+    return res.send('{"message": "Internal Server Error"}')
   }
   console.warn('Warning: Not Found')
   res.statusCode = 404
-  res.send('{"message": "Not Found"}\n')
+  res.send('{"message": "Not Found"}')
 }
 
 var cors = function (req, res, next) {
@@ -32,7 +32,7 @@ var jsonContent = function (req, res, next) {
   // transer-encoding: chunked in old nginx
   res.send = function (content) {
     res.setHeader('Content-Length', Buffer.byteLength(content))
-    res.end(content)
+    res.end(content + '\n')
   }
 
   next()

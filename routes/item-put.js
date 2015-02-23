@@ -11,7 +11,7 @@ module.exports = stack(
       item.id = req.params[0]
       es.index({_type: item.type, _id: item.id}, JSON.stringify(item), function (err, data) {
         if (err) return next(err)
-        res.send('{"ok": true}\n')
+        res.send('{"ok": true}')
       })
     }
 
