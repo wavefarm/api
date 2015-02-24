@@ -25,7 +25,7 @@ module.exports = stack(
       var field = schema.fields[fieldname]
       if (field.type && field.type.indexOf('rel') === 0) {
         // TODO retrieve mains for related items
-      } else if (field.type === "password") {
+      } else if (field.type === "password" && item[fieldname].indexOf('$2a$08$') !== 0) {
         return bcrypt.hash(item[fieldname], 8, function (err, hash) {
           if (err) return next(err)
           item[fieldname] = hash
