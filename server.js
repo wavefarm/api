@@ -31,8 +31,9 @@ var jsonContent = function (req, res, next) {
   // Provide a method that sets content length to avoid 
   // transer-encoding: chunked in old nginx
   res.send = function (content) {
+    content = content + '\n'
     res.setHeader('Content-Length', Buffer.byteLength(content))
-    res.end(content + '\n')
+    res.end(content)
   }
 
   next()
