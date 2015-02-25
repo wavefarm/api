@@ -3,13 +3,17 @@
   "main": "title",
   "fields": {
     "active": {"type": "boolean"},
-    "caption": {},
-    "collaborators": {"type": "rel:collaborator"},
-    "date": {"type": "date"},
-    "events": {"type": "rel:event"},
-    "mimetype": {},
-    "timestamp": {"type": "date"},
+    "url": {"type": "url"},
     "title": {},
-    "url": {"type": "url"}
+    "caption": {},
+    "description": {"type": "text"},
+    "mimetype": {},
+    "categories": {},
+    "date": {"type": "date"},
+    "sites": {},
+    "artists": {"type": "rel:artist"},
+    "works": {"type": "rel:work"},
+    "events": {"type": "rel:event"},
+    "shows": {"type": "rel:show"}
   }
 }

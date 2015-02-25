@@ -3,11 +3,17 @@
   "main": "title",
   "fields": {
     "active": {"type": "boolean"},
-    "title": {},
-    "date": {"type": "date"},
-    "caption": {},
-    "mimetype": {},
     "url": {"type": "url"},
-    "description": {"type": "text"}
+    "title": {},
+    "caption": {},
+    "description": {"type": "text"},
+    "mimetype": {},
+    "categories": {},
+    "date": {"type": "date"},
+    "sites": {},
+    "artists": {"type": "rel:artist"},
+    "works": {"type": "rel:work"},
+    "events": {"type": "rel:event"},
+    "shows": {"type": "rel:show"}
   }
 }

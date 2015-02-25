@@ -7,15 +7,15 @@
     "title": {},
     "subtitle": {},
     "credit": {},
-    "hosts": {"type": "rel:artist"},
     "airtime": {},
+    "description": {"type": "text"},
     "start": {"type": "date"},
     "end": {"type": "date"},
-    "description": {"type": "text"},
     "categories": {},
+    "hosts": {"type": "rel:artist"},
     "files": {"type": "rel:file"},
     "artists": {"type": "rel:artist"},
     "events": {"type": "rel:event"},
-    "relatedShows": {"type": "rel:show"}
+    "shows": {"type": "rel:show"}
   }
 }
