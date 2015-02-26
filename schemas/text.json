@@ -5,7 +5,7 @@
     "active": {"type": "boolean"},
     "url": {"type": "url"},
     "title": {},
-    "caption": {},
+    "credit": {},
     "description": {"type": "text"},
     "mimetype": {},
     "categories": {},
