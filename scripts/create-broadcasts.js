@@ -14,11 +14,10 @@ es.search({_type: 'show'}, {
 
 function createBroadcasts (show) {
   var broadcast, broadcasts = genb(show), commands = [];
-  if (!broadcasts) return;
 
   for (var i = 0; i < broadcasts.length; i++) {
     broadcast = broadcasts[i];
-    commands.push({index: {_index: 'free103', _type: 'broadcast', _id: broadcast.id}});
+    commands.push({index: {_index: process.env.ESINDEX || 'free103', _type: 'broadcast', _id: broadcast.id}});
     commands.push(broadcast);
 
     break;
