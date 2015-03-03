@@ -11,6 +11,7 @@
     "categories": {},
     "date": {"type": "date"},
     "sites": {},
+    "oldId": {},
     "artists": {"type": "rel:artist"},
     "works": {"type": "rel:work"},
     "events": {"type": "rel:event"},

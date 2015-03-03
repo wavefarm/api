@@ -9,6 +9,7 @@
     "genStart": {"type": "datetime"},
     "genEnd": {"type": "datetime"},
     "description": {"type": "text"},
+    "oldId": {},
     "hosts": {"type": "rel:artist"},
     "guests": {"type": "rel:artist"},
     "works": {"type": "rel:work"},

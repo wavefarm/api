@@ -13,6 +13,7 @@
     "publicEmail": {"type": "boolean"},
     "image": {"type": "url"},
     "imageCaption": {},
+    "oldId": {},
     "audio": {"type": "rel:audio"},
     "artists": {"type": "rel:artist"},
     "events": {"type": "rel:event"},

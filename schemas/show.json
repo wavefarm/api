@@ -12,6 +12,7 @@
     "start": {"type": "date"},
     "end": {"type": "date"},
     "categories": {},
+    "oldId": {},
     "hosts": {"type": "rel:artist"},
     "files": {"type": "rel:file"},
     "artists": {"type": "rel:artist"},

@@ -12,6 +12,7 @@
     "url": {"type": "url"},
     "briefDescription": {"type": "text"},
     "longDescription": {"type": "text"},
+    "oldId": {},
     "artists": {"type": "rel:artist"},
     "works": {"type": "rel:work"},
     "shows": {"type": "rel:show"},

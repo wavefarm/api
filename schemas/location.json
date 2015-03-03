@@ -3,6 +3,7 @@
   "main": "name",
   "fields": {
     "active": {"type": "boolean"},
+    "oldId": {},
     "name": {},
     "address": {},
     "address2": {},
