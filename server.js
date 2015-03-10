@@ -48,14 +48,15 @@ http.createServer(stack(
   cors,
   jsonContent,
   reqLog,
-  rut('/', require('./routes')),
-  rut('/search', require('./routes/search')),
-  rut('/schemas', require('./routes/schemas')),
-  rut('/wgxc/schedule/*', require('./routes/wgxc/schedule')),
+  rut.get('/', require('./routes')),
+  rut.get('/search', require('./routes/search')),
+  rut.get('/schemas', require('./routes/schemas')),
+  rut.get('/wgxc/schedule/*', require('./routes/wgxc/schedule')),
   rut.post('/login', require('./routes/login')),
+  rut.post('/bulk', require('./routes/bulk')),
+  rut.post('/', require('./routes/item-set')),
   rut.get(/^\/(\w{6})$/, require('./routes/item-get')),
-  rut.put(/^\/(\w{6})$/, require('./routes/item-put')),
-  rut.post('/bulk', require('./routes/bulk'))
+  rut.put(/^\/(\w{6})$/, require('./routes/item-set'))
 )).listen(port, function () {
   console.log('Listening on port', port)
   if (process.send) process.send('online')

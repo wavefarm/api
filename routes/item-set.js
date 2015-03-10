@@ -1,5 +1,6 @@
 var bcrypt = require('bcryptjs')
 var es = require('../es')
+var genid = require('../lib/genid')
 var scalpel = require('scalpel')
 var schemas = require('../schemas')
 var stack = require('stack')
@@ -7,15 +8,23 @@ var stack = require('stack')
 module.exports = stack(
   scalpel,
   function (req, res, next) {
+    var item = req.parsedBody;
+
     function save () {
-      item.id = req.params[0]
-      es.index({_type: item.type, _id: item.id}, JSON.stringify(item), function (err, data) {
+      var options = {_type: item.type}
+      if (req.params.length) {
+        item.id = req.params[0]
+      } else {
+        item.id = genid()
+        options.create = true
+      }
+      options._id = item.id
+      es.index(options, JSON.stringify(item), function (err) {
         if (err) return next(err)
-        res.send('{"ok": true}')
+        res.send(JSON.stringify(item))
       })
     }
 
-    var item = req.parsedBody;
     if (!item.type) return next({status: 422, message: 'Item must have a type.'});
     var schema = schemas[item.type];
     if (!schema) return next({status: 422, message: 'No schema found for that type.'});
@@ -24,7 +33,6 @@ module.exports = stack(
     fields.forEach(function (fieldname) {
       var field = schema.fields[fieldname]
       if (field.type && field.type.indexOf('rel') === 0) {
-        // TODO retrieve mains for related items
       } else if (field.type === "password" && item[fieldname].indexOf('$2a$08$') !== 0) {
         return bcrypt.hash(item[fieldname], 8, function (err, hash) {
           if (err) return next(err)
