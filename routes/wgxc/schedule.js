@@ -1,7 +1,4 @@
 var es = require('../../es')
-var schemas = require('../../schemas')
-var url = require('url')
-
 
 module.exports = function (req, res, next) {
   var date = req.params[0]

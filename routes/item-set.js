@@ -28,15 +28,13 @@ module.exports = stack(
     if (!item.type) return next({status: 422, message: 'Item must have a type.'});
     var schema = schemas[item.type];
     if (!schema) return next({status: 422, message: 'No schema found for that type.'});
-    var fields = Object.keys(schema.fields)
-    var pending = fields.length
-    fields.forEach(function (fieldname) {
-      var field = schema.fields[fieldname]
+    var pending = schema.fields.length
+    schema.fields.forEach(function (field) {
       if (field.type && field.type.indexOf('rel') === 0) {
-      } else if (field.type === "password" && item[fieldname].indexOf('$2a$08$') !== 0) {
-        return bcrypt.hash(item[fieldname], 8, function (err, hash) {
+      } else if (field.type === "password" && item[field.name].indexOf('$2a$08$') !== 0) {
+        return bcrypt.hash(item[field.name], 8, function (err, hash) {
           if (err) return next(err)
-          item[fieldname] = hash
+          item[field.name] = hash
           --pending || save()
         })
       }
