@@ -1,22 +1,22 @@
 {
   "name": "broadcast",
   "main": "title",
-  "fields": {
-    "public": {"type": "boolean"},
-    "title": {},
-    "start": {"type": "datetime"},
-    "end": {"type": "datetime"},
-    "genStart": {"type": "datetime"},
-    "genEnd": {"type": "datetime"},
-    "description": {"type": "text"},
-    "oldId": {},
-    "hosts": {"type": "rel:artist"},
-    "guests": {"type": "rel:artist"},
-    "works": {"type": "rel:work"},
-    "shows": {"type": "rel:show"},
-    "locations": {"type": "rel:location"},
-    "events": {"type": "rel:event"},
-    "image": {"type": "rel:image"},
-    "categories": {}
-  }
+  "fields": [
+    {"name": "public", "type": "boolean"},
+    {"name": "title"},
+    {"name": "start", "type": "datetime"},
+    {"name": "end", "type": "datetime"},
+    {"name": "genStart", "type": "datetime"},
+    {"name": "genEnd", "type": "datetime"},
+    {"name": "description", "type": "text"},
+    {"name": "oldId"},
+    {"name": "hosts", "type": "rel:artist"},
+    {"name": "guests", "type": "rel:artist"},
+    {"name": "works", "type": "rel:work"},
+    {"name": "shows", "type": "rel:show"},
+    {"name": "locations", "type": "rel:location"},
+    {"name": "events", "type": "rel:event"},
+    {"name": "image", "type": "rel:image"},
+    {"name": "categories"}
+  ]
 }

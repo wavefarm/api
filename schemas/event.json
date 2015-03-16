@@ -1,25 +1,25 @@
 {
   "name": "event",
   "main": "name",
-  "fields": {
-    "active": {"type": "boolean"},
-    "name": {},
-    "startDate": {"type": "date"},
-    "startTime": {},
-    "endDate": {"type": "date"},
-    "endTime": {},
-    "categories": {},
-    "url": {"type": "url"},
-    "briefDescription": {"type": "text"},
-    "longDescription": {"type": "text"},
-    "oldId": {},
-    "artists": {"type": "rel:artist"},
-    "works": {"type": "rel:work"},
-    "shows": {"type": "rel:show"},
-    "locations": {"type": "rel:location"},
-    "events": {"type": "rel:event"},
-    "image": {"type": "rel:image"},
-    "broadcastCategories": {},
-    "hosts": {"type": "rel:artist"}
-  }
+  "fields": [
+    {"name": "active", "type": "boolean"},
+    {"name": "name"},
+    {"name": "startDate", "type": "date"},
+    {"name": "startTime"},
+    {"name": "endDate", "type": "date"},
+    {"name": "endTime"},
+    {"name": "categories"},
+    {"name": "url", "type": "url"},
+    {"name": "briefDescription", "type": "text"},
+    {"name": "longDescription", "type": "text"},
+    {"name": "oldId"},
+    {"name": "artists", "type": "rel:artist"},
+    {"name": "works", "type": "rel:work"},
+    {"name": "shows", "type": "rel:show"},
+    {"name": "locations", "type": "rel:location"},
+    {"name": "events", "type": "rel:event"},
+    {"name": "image", "type": "rel:image"},
+    {"name": "broadcastCategories"},
+    {"name": "hosts", "type": "rel:artist"}
+  ]
 }

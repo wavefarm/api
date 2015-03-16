@@ -1,20 +1,20 @@
 {
   "name": "image",
   "main": "title",
-  "fields": {
-    "active": {"type": "boolean"},
-    "url": {"type": "url"},
-    "title": {},
-    "credit": {},
-    "description": {"type": "text"},
-    "mimetype": {},
-    "categories": {},
-    "date": {"type": "date"},
-    "sites": {},
-    "oldId": {},
-    "artists": {"type": "rel:artist"},
-    "works": {"type": "rel:work"},
-    "events": {"type": "rel:event"},
-    "shows": {"type": "rel:show"}
-  }
+  "fields": [
+    {"name": "active", "type": "boolean"},
+    {"name": "url", "type": "url"},
+    {"name": "title"},
+    {"name": "credit"},
+    {"name": "description", "type": "text"},
+    {"name": "mimetype"},
+    {"name": "categories"},
+    {"name": "date", "type": "date"},
+    {"name": "sites"},
+    {"name": "oldId"},
+    {"name": "artists", "type": "rel:artist"},
+    {"name": "works", "type": "rel:work"},
+    {"name": "events", "type": "rel:event"},
+    {"name": "shows", "type": "rel:show"}
+  ]
 }

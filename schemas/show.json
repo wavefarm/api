@@ -1,22 +1,22 @@
 {
   "name": "show",
   "main": "title",
-  "fields": {
-    "public": {"type": "boolean"},
-    "nonsort": {},
-    "title": {},
-    "subtitle": {},
-    "credit": {},
-    "airtime": {},
-    "description": {"type": "text"},
-    "start": {"type": "date"},
-    "end": {"type": "date"},
-    "categories": {},
-    "oldId": {},
-    "hosts": {"type": "rel:artist"},
-    "files": {"type": "rel:file"},
-    "artists": {"type": "rel:artist"},
-    "events": {"type": "rel:event"},
-    "shows": {"type": "rel:show"}
-  }
+  "fields": [
+    {"name": "public", "type": "boolean"},
+    {"name": "nonsort"},
+    {"name": "title"},
+    {"name": "subtitle"},
+    {"name": "credit"},
+    {"name": "airtime"},
+    {"name": "description", "type": "text"},
+    {"name": "start", "type": "date"},
+    {"name": "end", "type": "date"},
+    {"name": "categories"},
+    {"name": "oldId"},
+    {"name": "hosts", "type": "rel:artist"},
+    {"name": "files", "type": "rel:file"},
+    {"name": "artists", "type": "rel:artist"},
+    {"name": "events", "type": "rel:event"},
+    {"name": "shows", "type": "rel:show"}
+  ]
 }

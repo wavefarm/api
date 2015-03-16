@@ -1,23 +1,23 @@
 {
   "name": "work",
-  "fields": {
-    "public": {"type": "boolean"},
-    "nonsort": {},
-    "title": {},
-    "subtitle": {},
-    "date": {"type": "date"},
-    "description": {"type": "text"},
-    "url": {"type": "url"},
-    "categories": {},
-    "email": {"type": "email"},
-    "publicEmail": {"type": "boolean"},
-    "image": {"type": "url"},
-    "imageCaption": {},
-    "oldId": {},
-    "audio": {"type": "rel:audio"},
-    "artists": {"type": "rel:artist"},
-    "events": {"type": "rel:event"},
-    "shows": {"type": "rel:show"},
-    "works": {"type": "rel:work"}
-  }
+  "fields": [
+    {"name": "public", "type": "boolean"},
+    {"name": "nonsort"},
+    {"name": "title"},
+    {"name": "subtitle"},
+    {"name": "date", "type": "date"},
+    {"name": "description", "type": "text"},
+    {"name": "url", "type": "url"},
+    {"name": "categories"},
+    {"name": "email", "type": "email"},
+    {"name": "publicEmail", "type": "boolean"},
+    {"name": "image", "type": "url"},
+    {"name": "imageCaption"},
+    {"name": "oldId"},
+    {"name": "audio", "type": "rel:audio"},
+    {"name": "artists", "type": "rel:artist"},
+    {"name": "events", "type": "rel:event"},
+    {"name": "shows", "type": "rel:show"},
+    {"name": "works", "type": "rel:work"}
+  ]
 }

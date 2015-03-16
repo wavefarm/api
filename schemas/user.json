@@ -1,12 +1,12 @@
 {
   "name": "user",
   "main": "name",
-  "fields": {
-    "name": {},
-    "password": {"type": "password"},
-    "token": {},
-    "lastLogin": {"type": "date"},
-    "email": {"type": "email"},
-    "role": {}
-  }
+  "fields": [
+    {"name": "name"},
+    {"name": "password", "type": "password"},
+    {"name": "token"},
+    {"name": "lastLogin", "type": "date"},
+    {"name": "email", "type": "email"},
+    {"name": "role"}
+  ]
 }
