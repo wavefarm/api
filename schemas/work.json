@@ -11,8 +11,6 @@
     {"name": "description", "type": "text"},
     {"name": "url", "type": "url"},
     {"name": "categories"},
-    {"name": "email", "type": "email"},
-    {"name": "publicEmail", "type": "boolean"},
     {"name": "image", "type": "url"},
     {"name": "imageCaption"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
