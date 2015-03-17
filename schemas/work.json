@@ -13,6 +13,7 @@
     {"name": "publicEmail", "type": "boolean"},
     {"name": "image", "type": "url"},
     {"name": "imageCaption"},
+    {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "oldId"},
     {"name": "audio", "type": "rel:audio"},
     {"name": "artists", "type": "rel:artist"},

@@ -10,7 +10,7 @@
     {"name": "mimetype"},
     {"name": "categories"},
     {"name": "date", "type": "date"},
-    {"name": "sites"},
+    {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "oldId"},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},

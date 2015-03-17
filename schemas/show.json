@@ -12,6 +12,7 @@
     {"name": "start", "type": "date"},
     {"name": "end", "type": "date"},
     {"name": "categories"},
+    {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "oldId"},
     {"name": "hosts", "type": "rel:artist"},
     {"name": "files", "type": "rel:file"},

@@ -12,6 +12,7 @@
     {"name": "url", "type": "url"},
     {"name": "briefDescription", "type": "text"},
     {"name": "longDescription", "type": "text"},
+    {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "oldId"},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},

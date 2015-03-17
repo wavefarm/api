@@ -13,6 +13,7 @@
     {"name": "portraitCaption"},
     {"name": "longDescription", "type": "text"},
     {"name": "oldId"},
+    {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
     {"name": "shows", "type": "rel:show"},

@@ -10,6 +10,7 @@
     {"name": "genEnd", "type": "datetime"},
     {"name": "description", "type": "text"},
     {"name": "oldId"},
+    {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "hosts", "type": "rel:artist"},
     {"name": "guests", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
