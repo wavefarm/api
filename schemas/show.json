@@ -2,6 +2,7 @@
   "name": "show",
   "main": "title",
   "fields": [
+    {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "nonsort"},
     {"name": "title"},
@@ -13,7 +14,6 @@
     {"name": "end", "type": "date"},
     {"name": "categories"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
-    {"name": "oldId"},
     {"name": "hosts", "type": "rel:artist"},
     {"name": "files", "type": "rel:file"},
     {"name": "artists", "type": "rel:artist"},

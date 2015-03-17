@@ -2,6 +2,7 @@
   "name": "broadcast",
   "main": "title",
   "fields": [
+    {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "title"},
     {"name": "start", "type": "datetime"},
@@ -9,7 +10,6 @@
     {"name": "genStart", "type": "datetime"},
     {"name": "genEnd", "type": "datetime"},
     {"name": "description", "type": "text"},
-    {"name": "oldId"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "hosts", "type": "rel:artist"},
     {"name": "guests", "type": "rel:artist"},

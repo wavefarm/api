@@ -2,8 +2,8 @@
   "name": "location",
   "main": "name",
   "fields": [
+    {"name": "oldId", "type": "hidden"},
     {"name": "active", "type": "boolean"},
-    {"name": "oldId"},
     {"name": "name"},
     {"name": "address"},
     {"name": "address2"},

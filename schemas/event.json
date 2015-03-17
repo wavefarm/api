@@ -2,6 +2,7 @@
   "name": "event",
   "main": "name",
   "fields": [
+    {"name": "oldId", "type": "hidden"},
     {"name": "active", "type": "boolean"},
     {"name": "name"},
     {"name": "startDate", "type": "date"},
@@ -13,7 +14,6 @@
     {"name": "briefDescription", "type": "text"},
     {"name": "longDescription", "type": "text"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
-    {"name": "oldId"},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
     {"name": "shows", "type": "rel:show"},

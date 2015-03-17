@@ -1,6 +1,7 @@
 {
   "name": "work",
   "fields": [
+    {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "nonsort"},
     {"name": "title"},
@@ -14,7 +15,6 @@
     {"name": "image", "type": "url"},
     {"name": "imageCaption"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
-    {"name": "oldId"},
     {"name": "audio", "type": "rel:audio"},
     {"name": "artists", "type": "rel:artist"},
     {"name": "events", "type": "rel:event"},
