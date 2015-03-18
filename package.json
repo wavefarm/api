@@ -15,5 +15,8 @@
     "rut": "0.0.6",
     "scalpel": "0.0.4",
     "stack": "git://github.com/gsf/stack.git"
+  },
+  "devDependencies": {
+    "esindexdump": "^0.1.0"
   }
 }
