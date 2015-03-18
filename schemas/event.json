@@ -9,6 +9,7 @@
     {"name": "startTime"},
     {"name": "endDate", "type": "date"},
     {"name": "endTime"},
+    {"name": "admission", "type": "number"},
     {"name": "categories"},
     {"name": "url", "type": "url"},
     {"name": "briefDescription", "type": "text"},
