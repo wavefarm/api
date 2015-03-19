@@ -5,7 +5,12 @@ module.exports = function (req, res, next) {
   var queryBody = {
     filter: {
       and: [
-        {term: {active: true}},
+        {
+          or: [
+            {term: {active: true}},
+            {term: {public: true}}
+          ]
+        },
         {
           range: {
             start: {
