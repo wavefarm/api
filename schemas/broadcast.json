@@ -1,10 +1,10 @@
 {
   "name": "broadcast",
-  "main": "title",
+  "main": "name",
   "fields": [
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
-    {"name": "title"},
+    {"name": "name"},
     {"name": "start", "type": "datetime"},
     {"name": "end", "type": "datetime"},
     {"name": "genStart", "type": "datetime"},
