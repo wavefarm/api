@@ -3,7 +3,7 @@
   "main": "name",
   "fields": [
     {"name": "oldId", "type": "hidden"},
-    {"name": "active", "type": "boolean"},
+    {"name": "public", "type": "boolean"},
     {"name": "name"},
     {"name": "sortName"},
     {"name": "bio", "type": "text"},
