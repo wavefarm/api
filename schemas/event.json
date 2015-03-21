@@ -21,7 +21,6 @@
     {"name": "locations", "type": "rel:location"},
     {"name": "events", "type": "rel:event"},
     {"name": "image", "type": "rel:image"},
-    {"name": "broadcastCategories"},
     {"name": "hosts", "type": "rel:artist"}
   ]
 }
