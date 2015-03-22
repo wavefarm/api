@@ -10,7 +10,12 @@
     {"name": "endDate", "type": "date"},
     {"name": "endTime"},
     {"name": "admission", "type": "number"},
-    {"name": "categories"},
+    {"name": "categories", "type": "select-multiple", "options": [
+      "WGXC Calendar Event",
+      "TA Calendar Event",
+      "WGXC Community Calendar Event",
+      "TA International Calendar"
+    ]},
     {"name": "url", "type": "url"},
     {"name": "briefDescription", "type": "text"},
     {"name": "longDescription", "type": "text"},
