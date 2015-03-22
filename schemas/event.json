@@ -10,6 +10,9 @@
     {"name": "endDate", "type": "date"},
     {"name": "endTime"},
     {"name": "admission", "type": "number"},
+    {"name": "featured", "type": "boolean"},
+    {"name": "featuredImage", "type": "url"},
+    {"name": "featuredImageCredit"},
     {"name": "categories", "type": "select-multiple", "options": [
       "WGXC Calendar Event",
       "TA Calendar Event",
