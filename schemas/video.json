@@ -9,7 +9,6 @@
     {"name": "credit"},
     {"name": "description", "type": "text"},
     {"name": "mimetype"},
-    {"name": "categories"},
     {"name": "date", "type": "date"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
