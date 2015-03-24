@@ -17,6 +17,7 @@
     "stack": "git://github.com/gsf/stack.git"
   },
   "devDependencies": {
+    "elasticsearch-doc-stream": "^0.1.0",
     "esindexdump": "^0.1.0"
   }
 }
