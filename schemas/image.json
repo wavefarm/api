@@ -8,7 +8,12 @@
     {"name": "title"},
     {"name": "credit"},
     {"name": "description", "type": "text"},
-    {"name": "mimetype"},
+    {"name": "mimetype", "type": "select", "options": [
+      "image/jpeg",
+      "image/gif",
+      "image/png",
+      "image/tiff"
+    ]},
     {"name": "date", "type": "date"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
