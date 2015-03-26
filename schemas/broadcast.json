@@ -22,7 +22,6 @@
     {"name": "audio", "type": "rel:audio"},
     {"name": "video", "type": "rel:video"},
     {"name": "image", "type": "rel:image"},
-    {"name": "text", "type": "rel:text"},
-    {"name": "categories"}
+    {"name": "text", "type": "rel:text"}
   ]
 }
