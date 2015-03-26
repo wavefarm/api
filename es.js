@@ -1,7 +1,7 @@
 var es = require('es');
 var url = require('url');
 
-var u = url.parse(process.env.ESURL);
+var u = url.parse(process.env.ESURL || '');
 var port = u.port || (u.protocol === 'https:' ? 443 : 80);
 
 module.exports = es({
