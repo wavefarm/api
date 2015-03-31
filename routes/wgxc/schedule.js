@@ -18,6 +18,9 @@ module.exports = function (req, res, next) {
               to: date + 'T23:59:59'
             }
           }
+        },
+        {
+          term: {sites: 'wgxc'},
         }
       ]
     },
