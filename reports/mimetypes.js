@@ -38,5 +38,4 @@ d.on('error', function (err) {
 
 d.on('end', function () {
   console.log(mimetypes);
-  process.exit();
 });
