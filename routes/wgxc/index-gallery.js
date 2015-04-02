@@ -43,7 +43,7 @@ module.exports = function (req, res, next) {
       ]
     },
     _source: ['id','main','type','featuredImage','featuredImageCredit',
-              'startDate','startTime','endData','endTime','start','end',
+              'startDate','startTime','endDate','endTime','start','end',
               'shows.main','locations.main'],
     sort: [{start: 'asc'}]
   }
