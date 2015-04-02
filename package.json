@@ -9,6 +9,7 @@
   "repository": "http://github.com/wavefarm/api.wavefarm.org.git",
   "dependencies": {
     "bcryptjs": "^2.1.0",
+    "elasticsearch-doc-stream": "^0.1.4",
     "es": "~0.3.16",
     "pile": "0.0.5",
     "rrule": "^2.0.1",
