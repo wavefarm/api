@@ -12,12 +12,21 @@
     {"name": "description", "type": "text"},
     {"name": "start", "type": "date"},
     {"name": "end", "type": "date"},
-    {"name": "categories"},
+    {"name": "categories", "type": "select-multiple", "options": [
+      "music",
+      "transmission arts",
+      "Public affairs",
+      "youth programming"
+    ]},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
-    {"name": "hosts", "type": "rel:artist"},
-    {"name": "files", "type": "rel:file"},
     {"name": "artists", "type": "rel:artist"},
+    {"name": "broadcasts", "type": "rel:broadcast"},
     {"name": "events", "type": "rel:event"},
-    {"name": "shows", "type": "rel:show"}
+    {"name": "shows", "type": "rel:show"},
+    {"name": "works", "type": "rel:work"},
+    {"name": "audio", "type": "rel:audio"},
+    {"name": "image", "type": "rel:image"},
+    {"name": "text", "type": "rel:text"},
+    {"name": "video", "type": "rel:video"}
   ]
 }

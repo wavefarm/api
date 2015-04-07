@@ -18,6 +18,10 @@
     {"name": "artists", "type": "rel:artist"},
     {"name": "events", "type": "rel:event"},
     {"name": "shows", "type": "rel:show"},
-    {"name": "works", "type": "rel:work"}
+    {"name": "works", "type": "rel:work"},
+    {"name": "audio", "type": "rel:audio"},
+    {"name": "image", "type": "rel:image"},
+    {"name": "text", "type": "rel:text"},
+    {"name": "video", "type": "rel:video"}
   ]
 }

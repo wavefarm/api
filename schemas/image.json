@@ -19,6 +19,7 @@
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
     {"name": "events", "type": "rel:event"},
-    {"name": "shows", "type": "rel:show"}
+    {"name": "shows", "type": "rel:show"},
+    {"name": "broadcasts", "type": "rel:broadcast"}
   ]
 }

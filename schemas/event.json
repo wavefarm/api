@@ -5,9 +5,14 @@
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "name"},
+    {"name": "ongoing", "type": "boolean"},
+    {"name": "briefDescription", "type": "text"},
+    {"name": "longDescription", "type": "text"},
+    {"name": "url", "type": "url"},
+    {"name": "admission", "type": "number"},
+    {"name": "extraArtists", "type": "text"},
     {"name": "start", "type": "datetime"},
     {"name": "end", "type": "datetime"},
-    {"name": "admission", "type": "number"},
     {"name": "featured", "type": "boolean"},
     {"name": "featuredImage", "type": "url"},
     {"name": "featuredImageCredit"},
@@ -17,16 +22,16 @@
       "WGXC Community Calendar Event",
       "TA International Calendar"
     ]},
-    {"name": "url", "type": "url"},
-    {"name": "briefDescription", "type": "text"},
-    {"name": "longDescription", "type": "text"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
     {"name": "shows", "type": "rel:show"},
+    {"name": "broadcasts", "type": "rel:broadcast"},
     {"name": "locations", "type": "rel:location"},
     {"name": "events", "type": "rel:event"},
+    {"name": "audio", "type": "rel:audio"},
     {"name": "image", "type": "rel:image"},
-    {"name": "hosts", "type": "rel:artist"}
+    {"name": "text", "type": "rel:text"},
+    {"name": "video", "type": "rel:video"}
   ]
 }

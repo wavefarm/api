@@ -6,20 +6,27 @@
     {"name": "public", "type": "boolean"},
     {"name": "name"},
     {"name": "sortName"},
-    {"name": "bio", "type": "text"},
     {"name": "url", "type": "url"},
+    {"name": "bio", "type": "text"},
     {"name": "email", "type": "email"},
     {"name": "publicEmail", "type": "boolean"},
     {"name": "portrait", "type": "url"},
     {"name": "portraitCaption"},
+    {"name": "categories", "type": "select-multiple", "options": [
+      "Transmission Artist",
+      "Collaborator",
+      "WGXC Host",
+      "WGXC Collaborator"
+    ]},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
     {"name": "shows", "type": "rel:show"},
+    {"name": "broadcasts", "type": "rel:broadcast"},
     {"name": "events", "type": "rel:event"},
     {"name": "audio", "type": "rel:audio"},
-    {"name": "video", "type": "rel:video"},
     {"name": "image", "type": "rel:image"},
-    {"name": "text", "type": "rel:text"}
+    {"name": "text", "type": "rel:text"},
+    {"name": "video", "type": "rel:video"}
   ]
 }
