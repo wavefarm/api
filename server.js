@@ -57,7 +57,8 @@ http.createServer(stack(
   rut.post('/bulk', require('./routes/bulk')),
   rut.post('/', require('./routes/item-set')),
   rut.get(/^\/(\w{6})$/, require('./routes/item-get')),
-  rut.put(/^\/(\w{6})$/, require('./routes/item-set'))
+  rut.put(/^\/(\w{6})$/, require('./routes/item-set')),
+  rut.delete(/^\/(\w{6})$/, require('./routes/item-delete'))
 )).listen(port, function () {
   console.log('Listening on port', port)
   if (process.send) process.send('online')
