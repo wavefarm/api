@@ -20,6 +20,10 @@
     {"name": "works", "type": "rel:work"},
     {"name": "events", "type": "rel:event"},
     {"name": "shows", "type": "rel:show"},
-    {"name": "broadcasts", "type": "rel:broadcast"}
+    {"name": "broadcasts", "type": "rel:broadcast"},
+    {"name": "audio", "type": "rel:audio"},
+    {"name": "image", "type": "rel:image"},
+    {"name": "text", "type": "rel:text"},
+    {"name": "video", "type": "rel:video"}
   ]
 }
