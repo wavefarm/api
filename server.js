@@ -1,3 +1,4 @@
+var es = require('./es')
 var http = require('http')
 var rut = require('rut')
 var stack = require('stack')
@@ -44,10 +45,25 @@ var reqLog = function (req, res, next) {
   next()
 }
 
+var reqUser = function (req, res, next) {
+  var token = req.headers.authorization
+  if (!token) return next()
+
+  es.search({_type: 'user'}, {
+    query: {filtered: {filter: {term: {token: token}}}}
+  }, function (err, data) {
+    if (err) return next(err)
+    if (!data.hits.hits.length) return next({status: 401, message: 'Unauthorized'})
+    req.user = data.hits.hits[0]._source
+    next()
+  })
+}
+
 http.createServer(stack(
   cors,
   jsonContent,
   reqLog,
+  reqUser,
   rut.get('/', require('./routes')),
   rut.get('/search', require('./routes/search')),
   rut.get('/schemas', require('./routes/schemas')),

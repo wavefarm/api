@@ -16,22 +16,19 @@ module.exports = function (req, res, next) {
   var dateFilter
   var sortArray
   var search = {
-    query: {filtered: {
-      filter: {
-        and: [
-          {or: [
-            // XXX Separate endpoints for public and admin searches?
-            // If authenticated show all by default and allow parameters
-            // to filter by public/private.
-            {term: {active: true}},
-            {term: {public: true}}
-          ]}
-        ]
-      }
-    }},
+    // Must have something in the "and" array
+    query: {filtered: {filter: {and: [{match_all: {}}]}}},
     sort: [
       {timestamp: 'desc'}
     ]
+  }
+  if (req.user) {
+    // TODO set more filters based on req.user.permissions
+  } else {
+    search.query.filtered.filter.and.push({or: [
+      {term: {active: true}},
+      {term: {public: true}}
+    ]})
   }
   if (params.q) {
     search.query.filtered.query = {
