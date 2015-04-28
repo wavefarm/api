@@ -4,8 +4,7 @@
   "fields": [
     {"name": "name"},
     {"name": "password", "type": "password"},
-    {"name": "token"},
-    {"name": "lastLogin", "type": "date"},
+    {"name": "token", "type": "hidden"},
     {"name": "email", "type": "email"},
     {"name": "role"}
   ]
