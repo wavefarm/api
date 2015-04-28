@@ -3,6 +3,7 @@ var es = require('../../es')
 module.exports = function (req, res, next) {
   var date = req.params[0]
   var queryBody = {
+  	size: 100,
     filter: {
       and: [
         {
