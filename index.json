@@ -5,7 +5,7 @@
   },
   "mappings": {
     "_default_": {
-      "_timestamp": {"enabled": true, "path": "modified"}
+      "suggest": {"type": "completion", "payloads": true}
     }
   }
 }
