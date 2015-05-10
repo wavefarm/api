@@ -18,16 +18,16 @@ function getRelIdObj (arr) {
 
 function itemBefore (req, res, next) {
   var id = req.params[0]
-  if (id) {
-    es.get({_type: '_all', _id: id}, function (err, data) {
-      if (err) {
-        console.error('Error retrieving before item for ' + id)
-        return next() // just skip on any error
-      }
-      req.before = data._source
-      next()
-    })
-  }
+  if (!id) return next()
+
+  es.get({_type: '_all', _id: id}, function (err, data) {
+    if (err) {
+      console.error('Error retrieving before item for ' + id)
+      return next() // just skip on any error
+    }
+    req.before = data._source
+    next()
+  })
 }
 
 module.exports = stack(
@@ -35,7 +35,7 @@ module.exports = stack(
   itemBefore,
   function (req, res, next) {
     var item = req.parsedBody
-    var before = req.before
+    var before = req.before || {}
     var now = (new Date()).toISOString()
 
     function save () {
@@ -86,52 +86,52 @@ module.exports = stack(
 
         // For each missing, drop relation on the other side
         Object.keys(relIdsBefore).forEach(function (id) {
-          if (!relIds[id]) {
-            es.get({_type: '_all', _id: id}, function (err, data) {
-              if (err) console.error('Error retrieving related item for ' + id)
-              var itemOther = data._source
-              var relsOther = itemOther[relFieldName]
-              if (!relsOther) return console.error('No reference back to ' + item.type + ' in ' + id)
+          if (relIds[id]) return
 
-              itemOther[relFieldName] = relsOther.filter(function (relOther) {
-                return relOther.id !== item.id
-              })
-              var itemStr = JSON.stringify(itemOther)
-              es.index({_id: data._id, _type: data._type}, itemStr, function (err) {
-                // Might be hard to tie errors back to request since we aren't
-                // waiting but still better than hiding it completely
-                if (err) console.error(err)
-              })
+          es.get({_type: '_all', _id: id}, function (err, data) {
+            if (err) console.error('Error retrieving related item for ' + id)
+            var itemOther = data._source
+            var relsOther = itemOther[relFieldName]
+            if (!relsOther) return console.error('No reference back to ' + item.type + ' in ' + id)
+
+            itemOther[relFieldName] = relsOther.filter(function (relOther) {
+              return relOther.id !== item.id
             })
-          }
+            var itemStr = JSON.stringify(itemOther)
+            es.index({_id: data._id, _type: data._type}, itemStr, function (err) {
+              // Might be hard to tie errors back to request since we aren't
+              // waiting but still better than hiding it completely
+              if (err) console.error(err)
+            })
+          })
         })
 
         // For each new relation, add to other side
         Object.keys(relIds).forEach(function (id) {
-          if (!relIdsBefore[id]) {
-            es.get({_type: '_all', _id: id}, function (err, data) {
-              if (err) console.error('Error retrieving related item for ' + id)
-              var itemOther = data._source
-              var relsOther = itemOther[relFieldName]
+          if (relIdsBefore[id]) return
 
-              if (relsOther) {
-                // Guard against adding the same relation multiple times
-                relsOther = relsOther.filter(function (relOther) {
-                  return relOther.id !== item.id
-                })
-              } else relsOther = []
+          es.get({_type: '_all', _id: id}, function (err, data) {
+            if (err) console.error('Error retrieving related item for ' + id)
+            var itemOther = data._source
+            var relsOther = itemOther[relFieldName]
 
-              relsOther.push({id: item.id, main: item.main})
-              itemOther[relFieldName] = relsOther
-
-              var itemStr = JSON.stringify(itemOther)
-              es.index({_id: data._id, _type: data._type}, itemStr, function (err) {
-                // Might be hard to tie errors back to request since we aren't
-                // waiting but still better than hiding it completely
-                if (err) console.error(err)
+            if (relsOther) {
+              // Guard against adding the same relation multiple times
+              relsOther = relsOther.filter(function (relOther) {
+                return relOther.id !== item.id
               })
+            } else relsOther = []
+
+            relsOther.push({id: item.id, main: item.main})
+            itemOther[relFieldName] = relsOther
+
+            var itemStr = JSON.stringify(itemOther)
+            es.index({_id: data._id, _type: data._type}, itemStr, function (err) {
+              // Might be hard to tie errors back to request since we aren't
+              // waiting but still better than hiding it completely
+              if (err) console.error(err)
             })
-          }
+          })
         })
 
         // Don't bother waiting to hear back from related before saving
