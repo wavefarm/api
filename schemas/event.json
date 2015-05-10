@@ -17,10 +17,10 @@
     {"name": "featuredImage", "type": "url"},
     {"name": "featuredImageCredit"},
     {"name": "categories", "type": "select-multiple", "options": [
-      "WGXC Calendar Event",
       "TA Calendar Event",
-      "WGXC Community Calendar Event",
-      "TA International Calendar"
+      "TA International Calendar",
+      "WGXC Calendar Event",
+      "WGXC Community Calendar Event"
     ]},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
