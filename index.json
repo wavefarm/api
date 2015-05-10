@@ -5,7 +5,9 @@
   },
   "mappings": {
     "_default_": {
-      "suggest": {"type": "completion", "payloads": true}
+      "properties": {
+        "suggest": {"type": "completion", "payloads": true}
+      }
     }
   }
 }
