@@ -36,6 +36,7 @@ module.exports = stack(
   function (req, res, next) {
     var item = req.parsedBody
     var before = req.before
+    var now = (new Date()).toISOString()
 
     function save () {
       var options = {_type: item.type}
@@ -46,6 +47,7 @@ module.exports = stack(
         options.create = true
       }
       options._id = item.id
+      item.timestamp = now
       var itemStr = JSON.stringify(item)
       es.index(options, itemStr, function (err) {
         if (err) return next(err)
