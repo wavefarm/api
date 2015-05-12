@@ -68,6 +68,7 @@ http.createServer(stack(
   rut.get('/search', require('./routes/search')),
   rut.get('/schemas', require('./routes/schemas')),
   rut.get('/wgxc/schedule/*', require('./routes/wgxc/schedule')),
+  rut.get('/ta/schedule/*', require('./routes/ta/schedule')),
   rut.get('/wgxc/index-gallery', require('./routes/wgxc/index-gallery')),
   rut.post('/login', require('./routes/login')),
   rut.post('/bulk', require('./routes/bulk')),
