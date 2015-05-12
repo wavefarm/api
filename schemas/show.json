@@ -12,12 +12,6 @@
     {"name": "description", "type": "text"},
     {"name": "start", "type": "date"},
     {"name": "end", "type": "date"},
-    {"name": "categories", "type": "select-multiple", "options": [
-      "music",
-      "transmission arts",
-      "Public affairs",
-      "youth programming"
-    ]},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
     {"name": "broadcasts", "type": "rel:broadcast"},
