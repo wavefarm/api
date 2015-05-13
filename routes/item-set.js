@@ -136,12 +136,14 @@ module.exports = stack(
 
         // Don't bother waiting to hear back from related before saving
         --pending || save()
-      } else if (field.type === "password" && value.indexOf('$2a$08$') !== 0) {
+      } else if (field.type === 'password' && value.indexOf('$2a$08$') !== 0) {
         return bcrypt.hash(value, 8, function (err, hash) {
           if (err) return next(err)
           item[field.name] = hash
           --pending || save()
         })
+      } else if (field.name === 'token') {
+        item.token = genid(14)
       }
       --pending || save()
     })
