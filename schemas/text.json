@@ -3,7 +3,7 @@
   "main": "title",
   "fields": [
     {"name": "oldId", "type": "hidden"},
-    {"name": "active", "type": "boolean"},
+    {"name": "public", "type": "boolean"},
     {"name": "url", "type": "url"},
     {"name": "title"},
     {"name": "credit"},
