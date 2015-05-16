@@ -18,6 +18,7 @@
     {"name": "artists", "type": "rel:artist"},
     {"name": "events", "type": "rel:event"},
     {"name": "shows", "type": "rel:show"},
+    {"name": "broadcasts", "type": "rel:broadcast"},
     {"name": "works", "type": "rel:work"},
     {"name": "audio", "type": "rel:audio"},
     {"name": "image", "type": "rel:image"},
