@@ -9,6 +9,7 @@
     {"name": "briefDescription", "type": "text"},
     {"name": "longDescription", "type": "text"},
     {"name": "url", "type": "url"},
+    {"name": "email", "type": "email"},
     {"name": "admission", "type": "number"},
     {"name": "extraArtists", "type": "text"},
     {"name": "start", "type": "datetime"},
