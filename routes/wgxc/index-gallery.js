@@ -28,7 +28,14 @@ module.exports = function (req, res, next) {
 		              from: date + 'T00:00:00'
 		            }
 		          }
-		        }
+		        },
+		        {
+		          range: {
+		            end: {
+		              from: date + 'T00:00:00'
+		            }
+		          }
+		        }		        
 	        ]
         },                
         {
