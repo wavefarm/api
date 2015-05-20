@@ -70,6 +70,7 @@ http.createServer(stack(
   rut.get('/wgxc/schedule/*', require('./routes/wgxc/schedule')),
   rut.get('/ta/schedule/*', require('./routes/ta/schedule')),
   rut.get('/wgxc/index-gallery', require('./routes/wgxc/index-gallery')),
+  rut.get('/ta/index-gallery', require('./routes/ta/index-gallery')),
   rut.post('/wgxc/add-event', require('./routes/wgxc/add-event')),
   rut.post('/login', require('./routes/login')),
   rut.post('/bulk', require('./routes/bulk')),
