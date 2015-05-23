@@ -60,6 +60,8 @@ module.exports = stack(
     var schema = schemas[item.type];
     if (!schema) return next({status: 422, message: 'No schema found for that type.'});
 
+    item.main = item[schema.main]
+
     var pending = schema.fields.length
     schema.fields.forEach(function (field) {
       var value = item[field.name]
