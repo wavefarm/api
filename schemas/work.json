@@ -4,9 +4,9 @@
   "fields": [
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
-    {"name": "nonsort"},
     {"name": "title"},
     {"name": "subtitle"},
+    {"name": "sort"},
     {"name": "date", "type": "date"},
     {"name": "description", "type": "text"},
     {"name": "url", "type": "url"},

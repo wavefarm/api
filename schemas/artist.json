@@ -5,7 +5,7 @@
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "name"},
-    {"name": "sortName"},
+    {"name": "sort"},
     {"name": "url", "type": "url"},
     {"name": "bio", "type": "text"},
     {"name": "email", "type": "email"},

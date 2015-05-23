@@ -6,6 +6,7 @@
     {"name": "public", "type": "boolean"},
     {"name": "url", "type": "url"},
     {"name": "title"},
+    {"name": "sort"},
     {"name": "credit"},
     {"name": "description", "type": "text"},
     {"name": "mimetype", "type": "select", "options": [

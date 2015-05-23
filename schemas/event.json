@@ -5,6 +5,7 @@
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "name"},
+    {"name": "sort"},
     {"name": "ongoing", "type": "boolean"},
     {"name": "briefDescription", "type": "text"},
     {"name": "longDescription", "type": "text"},

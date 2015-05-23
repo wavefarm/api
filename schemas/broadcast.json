@@ -5,6 +5,7 @@
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "name"},
+    {"name": "sort"},
     {"name": "start", "type": "datetime"},
     {"name": "end", "type": "datetime"},
     {"name": "genStart", "type": "hidden"},
