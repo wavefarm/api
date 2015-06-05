@@ -30,7 +30,7 @@ module.exports = function (req, res, next) {
   }  
     
   var queryBody = {
-  	size: (queryQuery|letterQuery)?1000:10,
+  	size: (queryQuery||letterQuery)?1000:10,
     filter: {
       and: [
         {
