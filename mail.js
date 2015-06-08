@@ -10,11 +10,11 @@ var transporter = nodemailer.createTransport({
 
 var opt = {
   from: 'Wave Farm <info@wavefarm.org>',
-  to: process.env.ADMIN_MAIL,
   subject: 'Notice from the Wave Farm app'
 }
 
-module.exports = function (body) {
+module.exports = function (to, body) {
+  opt.to = to
   opt.text = body
   transporter.sendMail(opt, function (err, info) {
     if (err) return console.error(err)

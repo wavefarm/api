@@ -51,7 +51,8 @@ module.exports = function (req, res, next) {
     })
 
     // send mail to admin
-    // TODO: request is to notify info@wgxc.org for WGXC and info@wavefarm.ort for TA.
-    mail('The following event was added by ' + item.email + ':\nhttps://wavefarm.org/admin/' + item.id)
+    var to = 'info@wgxc.org';
+    if (item.source == 'ta') to = 'info@wavefarm.org';
+    mail(to, 'The following event was added by ' + item.email + ':\nhttps://wavefarm.org/admin/' + item.id)
   })
 }
