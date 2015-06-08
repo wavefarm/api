@@ -40,6 +40,9 @@ module.exports = function (req, res, next) {
       item.sites = ['wgxc'];
     }
 
+    var to = 'info@wgxc.org';
+    if (item.source == 'ta') to = 'info@wavefarm.org';
+
     if (typeof(item.source)!='undefined') {
       delete item['source'];
     }
@@ -51,8 +54,6 @@ module.exports = function (req, res, next) {
     })
 
     // send mail to admin
-    var to = 'info@wgxc.org';
-    if (item.source == 'ta') to = 'info@wavefarm.org';
     mail(to, 'The following event was added by ' + item.email + ':\nhttps://wavefarm.org/admin/' + item.id)
   })
 }
