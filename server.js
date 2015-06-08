@@ -75,7 +75,7 @@ http.createServer(stack(
   rut.get('/ta/artists', require('./routes/ta/artist-index')),
   rut.get('/ta/works/*', require('./routes/ta/work-index')),
   rut.get('/ta/works', require('./routes/ta/work-index')),
-  rut.post('/wgxc/add-event', require('./routes/wgxc/add-event')),
+  rut.post('/add-event', require('./routes/add-event')),
   //rut.get('/related-items/*/*/*', require('./routes/related-items')),
   rut.post('/login', require('./routes/login')),
   rut.post('/bulk', require('./routes/bulk')),
