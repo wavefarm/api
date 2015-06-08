@@ -1,6 +1,6 @@
-var es = require('../../es')
-var genid = require('../../lib/genid')
-var mail = require('../../mail')
+var es = require('../es')
+var genid = require('../lib/genid')
+var mail = require('../mail')
 
 module.exports = function (req, res, next) {
   req.body = ''
