@@ -114,7 +114,7 @@ module.exports = stack(
           if (relIdsBefore[id]) return
 
           es.get({_type: '_all', _id: id}, function (err, data) {
-            if (err) console.error('Error retrieving related item for ' + id)
+            if (err) return console.error('Error retrieving related item for ' + id)
             var itemOther = data._source
             var relsOther = itemOther[relFieldName]
 
