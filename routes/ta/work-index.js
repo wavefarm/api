@@ -40,7 +40,8 @@ module.exports = function (req, res, next) {
       ]
     },
     _source: ['id','type','main','description','sort','date','yearOnly','credit'],    
-    sort: [{main: 'asc'}]
+    sort: [{sort: 'asc'}]
+    
   }
   
 	if (letterQuery)
