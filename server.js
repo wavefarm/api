@@ -82,7 +82,9 @@ http.createServer(stack(
   rut.post('/', require('./routes/item-set')),
   rut.get(/^\/(\w{6})$/, require('./routes/item-get')),
   rut.put(/^\/(\w{6})$/, require('./routes/item-set')),
-  rut.delete(/^\/(\w{6})$/, require('./routes/item-delete'))
+  rut.delete(/^\/(\w{6})$/, require('./routes/item-delete')),
+  rut.get(/^\/genb\/(\w{6})\/(\w{4}-\w{2}-\w{2})\/(\w{4}-\w{2}-\w{2})$/, require('./routes/show-genb'))
+  
 )).listen(port, function () {
   console.log('Listening on port', port)
   if (process.send) process.send('online')
