@@ -9,6 +9,7 @@
     {"name": "sort"},
     {"name": "credit"},
     {"name": "airtime"},
+    {"name": "genbAirtime","label":"genb airtime"},
     {"name": "description", "type": "text"},
     {"name": "start", "type": "date"},
     {"name": "end", "type": "date"},

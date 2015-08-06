@@ -47,6 +47,8 @@ var reqLog = function (req, res, next) {
 
 var reqUser = function (req, res, next) {
   var token = req.headers.authorization
+  //var token = req.headers.authorization
+  //console.log(req.headers);
   if (!token) return next()
 
   es.search({_type: 'user'}, {
@@ -83,7 +85,8 @@ http.createServer(stack(
   rut.get(/^\/(\w{6})$/, require('./routes/item-get')),
   rut.put(/^\/(\w{6})$/, require('./routes/item-set')),
   rut.delete(/^\/(\w{6})$/, require('./routes/item-delete')),
-  rut.get(/^\/genb\/(\w{6})\/(\w{4}-\w{2}-\w{2})\/(\w{4}-\w{2}-\w{2})$/, require('./routes/show-genb'))
+  //rut.get(/^\/genb\/(\w{6})\/(\w{4}-\w{2}-\w{2})\/(\w{4}-\w{2}-\w{2})$/, require('./routes/show-genb'))
+  rut.post('/genb', require('./routes/show-genb'))
   
 )).listen(port, function () {
   console.log('Listening on port', port)
