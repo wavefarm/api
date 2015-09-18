@@ -111,7 +111,8 @@ module.exports = stack(
 
         // For each new relation, add to other side
         Object.keys(relIds).forEach(function (id) {
-          if (relIdsBefore[id]) return
+        	// if main has changed then we need to update mains on other side of relation so coontinue
+          if (relIdsBefore[id] && item.main==before.main) return
 
           es.get({_type: '_all', _id: id}, function (err, data) {
             if (err) return console.error('Error retrieving related item for ' + id)
