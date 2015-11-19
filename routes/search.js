@@ -45,7 +45,15 @@ module.exports = function (req, res, next) {
       or: [
         {
           range: {
-            'date.sort': {
+            date: {
+              gte: params.date,
+              lte: params.date
+            }
+          }
+        },
+        {
+          range: {
+            "date.sort": {
               gte: params.date,
               lte: params.date
             }
@@ -72,8 +80,9 @@ module.exports = function (req, res, next) {
       ]
     }
     if (params.date2) {
-      dateFilter.or[0].range['date.sort'].lte = params.date2
-      dateFilter.or[1].and[0].range.start.lte = params.date2
+      dateFilter.or[0].range.date.lte = params.date2
+      dateFilter.or[1].range['date.sort'].lte = params.date2
+      dateFilter.or[2].and[0].range.start.lte = params.date2
     }
     search.query.filtered.filter.and.push(dateFilter)
   }

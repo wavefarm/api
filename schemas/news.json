@@ -1,32 +1,24 @@
 {
-  "name": "audio",
+  "name": "news",
   "main": "title",
   "fields": [
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
-    {"name": "url", "type": "url"},
     {"name": "title"},
     {"name": "sort"},
-    {"name": "credit"},
+    {"name": "date", "type": "datetime"},
+    {"name": "author"},
     {"name": "description", "type": "text"},
-    {"name": "mimetype", "type": "select", "options": [
-      "audio/mpeg",
-      "audio/wav",
-      "audio/ogg",
-      "audio/aiff",
-      "audio/flac"
-    ]},
-    {"name": "date", "type": "date"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
-    {"name": "events", "type": "rel:event"},
     {"name": "shows", "type": "rel:show"},
     {"name": "broadcasts", "type": "rel:broadcast"},
+    {"name": "events", "type": "event"},
+    {"name": "locations", "type": "rel:location"},
     {"name": "audio", "type": "rel:audio"},
     {"name": "image", "type": "rel:image"},
     {"name": "text", "type": "rel:text"},
-    {"name": "video", "type": "rel:video"},
-    {"name": "news",  "type": "rel:news"}    
+    {"name": "video", "type": "rel:video"}
   ]
 }

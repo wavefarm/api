@@ -8,7 +8,7 @@
     {"name": "sort"},
     {"name": "ongoing", "type": "hidden"},
     {"name": "briefDescription", "type": "text"},
-    {"name": "longDescription", "type": "text"},
+    {"name": "longDescription", "type": "hidden"},
     {"name": "url", "type": "url"},
     {"name": "email", "type": "email"},
     {"name": "admission", "type": "hidden"},
@@ -34,6 +34,7 @@
     {"name": "audio", "type": "rel:audio"},
     {"name": "image", "type": "rel:image"},
     {"name": "text", "type": "rel:text"},
-    {"name": "video", "type": "rel:video"}
+    {"name": "video", "type": "rel:video"},
+    {"name": "news",  "type": "rel:news"} 
   ]
 }
