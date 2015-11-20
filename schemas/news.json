@@ -5,6 +5,7 @@
     {"name": "oldId", "type": "hidden"},
     {"name": "public", "type": "boolean"},
     {"name": "title"},
+    {"name": "keywords"},
     {"name": "sort"},
     {"name": "date", "type": "datetime"},
     {"name": "author"},
