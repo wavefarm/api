@@ -15,7 +15,7 @@
     {"name": "works", "type": "rel:work"},
     {"name": "shows", "type": "rel:show"},
     {"name": "broadcasts", "type": "rel:broadcast"},
-    {"name": "events", "type": "event"},
+    {"name": "events", "type": "rel:event"},
     {"name": "locations", "type": "rel:location"},
     {"name": "audio", "type": "rel:audio"},
     {"name": "image", "type": "rel:image"},
