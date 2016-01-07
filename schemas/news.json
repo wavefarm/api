@@ -11,6 +11,7 @@
     {"name": "author"},
     {"name": "description", "type": "text"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
+    {"name": "news", "type": "rel:news"},
     {"name": "artists", "type": "rel:artist"},
     {"name": "works", "type": "rel:work"},
     {"name": "shows", "type": "rel:show"},
