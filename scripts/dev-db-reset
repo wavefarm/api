@@ -1,6 +1,6 @@
 #!/bin/sh -eux
 
-esindexdump $ESURLPROD > tmp.ldj
+esindexdump $ESURLPROD > tmp.ndjson
 curl -XDELETE $ESURLDEV
 curl -XPUT $ESURLDEV -d @index.json
-curl -XPOST $ESURLDEV/_bulk --data-binary @tmp.ldj
+curl -XPOST $ESURLDEV/_bulk --data-binary @tmp.ndjson
