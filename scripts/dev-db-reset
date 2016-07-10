@@ -1,4 +1,4 @@
-set -e
+#!/bin/sh -eux
 
 esindexdump $ESURLPROD > tmp.ldj
 curl -XDELETE $ESURLDEV
