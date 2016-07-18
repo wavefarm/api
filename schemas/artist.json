@@ -14,9 +14,7 @@
     {"name": "portraitCaption", "type": "hidden"},
     {"name": "categories", "type": "select-multiple", "options": [
       "Transmission Artist",
-      "Collaborator",
-      "WGXC Host",
-      "WGXC Collaborator"
+      "Collaborator"
     ]},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
