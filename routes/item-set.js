@@ -1,7 +1,7 @@
 var bcrypt = require('bcryptjs')
 var es = require('../es')
 var genid = require('../lib/genid')
-var scalpel = require('scalpel')
+var scalpel = require('../lib/scalpel')
 var schemas = require('../schemas')
 var stack = require('stack')
 

@@ -1,6 +1,6 @@
 var bcrypt = require('bcryptjs')
 var es = require('../es')
-var scalpel = require('scalpel')
+var scalpel = require('../lib/scalpel')
 var stack = require('stack')
 
 module.exports = stack(
