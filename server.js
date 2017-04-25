@@ -3,7 +3,6 @@ var http = require('http')
 var rut = require('rut')
 var stack = require('stack')
 
-
 var port = process.env.PORT || process.argv[2] || 1039
 
 stack.handler = function (req, res, err) {
