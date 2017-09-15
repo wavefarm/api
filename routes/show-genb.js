@@ -40,7 +40,12 @@ module.exports = stack(
 	    if (data['_type']!='show') return next() // 404 on any error
 	        
 	    show = data._source;
-	            
+
+	    if (!show.genbAirtime && !show.airtime) {
+		  	 return next({status: 400, message: "airtime or genb airtime required"})
+	    }
+	    
+	    
 	    broadcasts = genb(show,params.startDate,params.endDate);
 	    
 	    if (broadcasts instanceof Error || broadcasts instanceof String) {
