@@ -30,6 +30,7 @@ module.exports = function (req, res, next) {
       {term: {public: true}}
     ]})
   }
+    
   if (params.q) {
     search.query.filtered.query = {
       query_string: {
@@ -86,6 +87,18 @@ module.exports = function (req, res, next) {
     }
     search.query.filtered.filter.and.push(dateFilter)
   }
+  
+  if (params.missing) {
+	  search.query.filtered.filter.and.push({or: [
+		  {missing: {field: params.missing}}
+    ]})
+  }
+  if (params.exists) {
+	  search.query.filtered.filter.and.push({or: [
+		  {exists: {field: params.exists}}
+    ]})
+  }
+  
   if (params.from) search.from = params.from
   if (params.size) search.size = params.size
   if (params.sort) {
