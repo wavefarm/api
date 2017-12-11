@@ -25,6 +25,8 @@
       "Publication",
       "Tool"
     ]},
+    {"name": "reviewDate", "type": "date"},
+    {"name": "keywords"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
     {"name": "artists", "type": "rel:artist"},
     {"name": "events", "type": "rel:event"},
