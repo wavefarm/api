@@ -14,6 +14,7 @@
     {"name": "start", "type": "date"},
     {"name": "end", "type": "date"},
     {"name": "subscriptionIcon"},
+    {"name": "iTunesSubscriptionIcon"},
     {"name": "reviewDate", "type": "date"},
     {"name": "keywords"},
     {"name": "sites", "type": "select-multiple", "options": ["transmissionarts", "wgxc"]},
